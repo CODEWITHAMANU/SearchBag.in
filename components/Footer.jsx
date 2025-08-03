@@ -121,7 +121,7 @@ const Footer = () => {
                   href="https://maps.app.goo.gl/TkMbQxgaCfq13wn58"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-start text-sm text-blue-600/80 hover:text-blue-700 transition-all duration-200"
+                  className="flex items-start text-sm transition-all duration-200 text-blue-600/80 hover:text-blue-700"
                 >
                   <MapPin size={14} className="flex-shrink-0 mt-1 mr-2 text-blue-500" />
                   <span>Shop No. 28, Lohe Ki Chawl, Mumbai Bag Market, Maulana Azad Road, Madanpura, Mumbai - 400 008.</span>
@@ -147,11 +147,11 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="mailto:searchbags789@gmail.com"
+                  href="mailto:support@searchbag.in"
                   className="flex items-center text-sm transition-all duration-200 text-blue-600/80 hover:text-blue-700"
                 >
                   <Mail size={14} className="flex-shrink-0 mr-2 text-blue-500" />
-                  searchbags789@gmail.com
+                  support@searchbag.in
                 </a>
               </li>
               <li>

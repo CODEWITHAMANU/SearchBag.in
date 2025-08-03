@@ -282,8 +282,14 @@ const ContactPage = () => {
                         <h3 className="text-base sm:text-lg font-heading font-semibold text-blue-900 mb-0.5 sm:mb-1">
                           Email
                         </h3>
-                        <a href="mailto:searchbags789@gmail.com" className="block p-2 mt-1 text-sm text-gray-600 rounded-lg border border-blue-100 shadow-sm transition-colors duration-200 sm:text-base hover:text-blue-600 font-body bg-blue-50/50">
-                          searchbags789@gmail.com
+                        <a href="mailto:support@searchbag.in" className="block p-2 mt-1 text-sm text-gray-600 rounded-lg border border-blue-100 shadow-sm transition-colors duration-200 sm:text-base hover:text-blue-600 font-body bg-blue-50/50">
+                          support@searchbag.in
+                        </a>
+                        <a href="mailto:amanu@searchbag.in" className="block p-2 mt-1 text-sm text-gray-600 rounded-lg border border-blue-100 shadow-sm transition-colors duration-200 sm:text-base hover:text-blue-600 font-body bg-blue-50/50">
+                          amanu@searchbag.in
+                        </a>
+                        <a href="mailto:sale@searchbag.in" className="block p-2 mt-1 text-sm text-gray-600 rounded-lg border border-blue-100 shadow-sm transition-colors duration-200 sm:text-base hover:text-blue-600 font-body bg-blue-50/50">
+                          sale@searchbag.in
                         </a>
                       </div>
                     </div>

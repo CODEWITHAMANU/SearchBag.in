@@ -102,10 +102,10 @@ const Navbar = () => {
           <Phone className="mr-1.5 w-3 h-3" /> +91 88280 81163
         </a>
         <a
-          href="mailto:searchbags789@gmail.com"
+          href="mailto:support@searchbag.in"
           className="flex items-center transition-colors duration-200 hover:text-blue-600"
         >
-          <Mail className="mr-1.5 w-3 h-3" /> searchbags789@gmail.com
+          <Mail className="mr-1.5 w-3 h-3" /> support@searchbag.in
         </a>
       </div>
 
@@ -293,8 +293,8 @@ const Navbar = () => {
             </div>
             <div className="flex gap-2 items-center py-2 text-sm font-medium">
               <Mail className="w-4 h-4 text-blue-500" />
-              <a href="mailto:searchbags789@gmail.com">
-                searchbags789@gmail.com
+              <a href="mailto:support@searchbag.in">
+                support@searchbag.in
               </a>
             </div>
           </div>
