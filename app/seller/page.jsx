@@ -38,7 +38,8 @@ const AddProduct = () => {
   const fetchProductData = async (id) => {
     try {
       const token = await getToken();
-      const { data } = await axios.get(`/api/product/${id}`, {
+      const apiUrl = `${window.location.origin}/api/product/${id}`;
+      const { data } = await axios.get(apiUrl, {
         headers: { Authorization: `Bearer ${token}` },
       });
       

@@ -20,7 +20,8 @@ const ProductList = () => {
   const fetchSellerProduct = async () => {
     try {
       const token = await getToken();
-      const { data } = await axios.get("/api/product/seller-list", {
+      const apiUrl = `${window.location.origin}/api/product/seller-list`;
+      const { data } = await axios.get(apiUrl, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -43,7 +44,8 @@ const ProductList = () => {
     try {
       setDeletingId(id);
       const token = await getToken();
-      const { data } = await axios.delete(`/api/product/delete/${id}`, {
+      const apiUrl = `${window.location.origin}/api/product/delete/${id}`;
+      const { data } = await axios.delete(apiUrl, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

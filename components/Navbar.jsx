@@ -59,9 +59,8 @@ const Navbar = () => {
     const fetchSearchResults = async () => {
       if (searchQuery.trim()) {
         try {
-          const response = await axios.get(
-            `/api/products/search?q=${encodeURIComponent(searchQuery)}`
-          );
+          const apiUrl = `${window.location.origin}/api/products/search?q=${encodeURIComponent(searchQuery)}`;
+          const response = await axios.get(apiUrl);
           setSearchResults(response.data);
         } catch (error) {
           console.error("Search error:", error);

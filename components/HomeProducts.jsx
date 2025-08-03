@@ -16,7 +16,9 @@ const HomeProducts = () => {
     const fetchProducts = async () => {
       try {
         setIsLoading(true);
-        const { data } = await axios.get("/api/product/list");
+        // Use absolute URL with origin to ensure it works with custom domains
+        const apiUrl = `${window.location.origin}/api/product/list`;
+        const { data } = await axios.get(apiUrl);
         if (data.success) {
           const bagProducts = data.products.filter(
             (product) =>

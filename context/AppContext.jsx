@@ -27,7 +27,9 @@ const AppContextProvider = ({ children }) => {
           setCategory(categoryParam);
         }
 
-        const response = await fetch("/api/product/list");
+        // Use absolute URL with origin to ensure it works with custom domains
+        const apiUrl = `${window.location.origin}/api/product/list`;
+        const response = await fetch(apiUrl);
         const data = await response.json();
         if (data.success) {
           let filteredProducts = data.products;
