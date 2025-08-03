@@ -24,10 +24,10 @@ const HeaderSlider = () => {
       buttonText1: "SHOP NOW",
       buttonText2: "LEARN MORE",
       imgSrc: assets.product,
-      bgColor: "bg-gradient-to-r from-teal-800 to-teal-900",
+      bgColor: "bg-gradient-to-r from-blue-800 to-blue-900",
       textColor: "text-stone-100",
-      accentColor: "text-teal-300",
-      graphicColor: "bg-teal-400",
+      accentColor: "text-blue-300",
+      graphicColor: "bg-blue-400",
     },
     {
       id: 2,
@@ -37,10 +37,10 @@ const HeaderSlider = () => {
       buttonText1: "EXPLORE COLLECTION",
       buttonText2: "VIEW DETAILS",
       imgSrc: assets.student,
-      bgColor: "bg-gradient-to-r from-teal-700 to-teal-800",
+      bgColor: "bg-gradient-to-r from-blue-700 to-blue-800",
       textColor: "text-stone-100",
-      accentColor: "text-teal-200",
-      graphicColor: "bg-teal-300",
+      accentColor: "text-blue-200",
+      graphicColor: "bg-blue-300",
     },
     {
       id: 3,
@@ -50,10 +50,10 @@ const HeaderSlider = () => {
       buttonText1: "DISCOVER NOW",
       buttonText2: "CONTACT US",
       imgSrc: assets.business,
-      bgColor: "bg-gradient-to-r from-stone-900 to-stone-800",
+      bgColor: "bg-gradient-to-r from-blue-900 to-blue-800",
       textColor: "text-stone-100",
-      accentColor: "text-teal-400",
-      graphicColor: "bg-teal-500",
+      accentColor: "text-blue-400",
+      graphicColor: "bg-blue-500",
     },
   ];
 
@@ -194,10 +194,13 @@ const HeaderSlider = () => {
             <p className="mx-auto mt-2 max-w-xs text-sm leading-relaxed opacity-90 md:mx-0 md:text-xl lg:text-2xl font-body">
               {slide.subtitle}
             </p>
+            
+      
+            
             <div className="flex justify-center pt-4 md:justify-start">
               <button
                 onClick={() => router.push("/all-products")}
-                className="px-6 py-2 w-full text-sm font-medium bg-gradient-to-r from-teal-500 to-teal-400 rounded-full shadow-xl transition-all duration-300 transform hover:from-teal-400 hover:to-teal-300 text-stone-900 md:px-8 md:py-3 md:text-base hover:shadow-2xl hover:-translate-y-1 font-body sm:w-auto"
+                className="px-6 py-2 w-full text-sm font-medium bg-gradient-to-r from-blue-500 to-blue-400 rounded-full shadow-xl transition-all duration-300 transform hover:from-blue-400 hover:to-blue-300 text-stone-100 md:px-8 md:py-3 md:text-base hover:shadow-2xl hover:-translate-y-1 font-body sm:w-auto"
               >
                 {slide.buttonText1}
               </button>
@@ -228,7 +231,7 @@ const HeaderSlider = () => {
             key={index}
             className={`w-3 h-3 rounded-full transition-all duration-500 ${
               currentSlide === index
-                ? "bg-teal-400 scale-125 shadow-lg shadow-teal-400/50"
+                ? "bg-blue-400 scale-125 shadow-lg shadow-blue-400/50"
                 : "bg-white/40"
             }`}
             onClick={() => setCurrentSlide(index)}

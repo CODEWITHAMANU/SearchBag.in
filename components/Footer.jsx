@@ -4,63 +4,73 @@ import Image from "next/image";
 import { assets } from "@/assets/assets";
 import {
   Facebook,
-  Twitter,
   Instagram,
   MapPin,
   Phone,
   Mail,
   Clock,
+  MessageCircle,
+  ExternalLink
 } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="px-4 py-8 bg-white border-t text-stone-800 sm:py-10 sm:px-6 md:px-8 border-stone-200">
-      <div className="mx-auto max-w-7xl">
-        <div className="grid grid-cols-2 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 sm:gap-8">
+    <footer className="pt-12 pb-8 text-blue-700 bg-white border-t border-blue-100 md:pt-16">
+
+      <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 lg:gap-14">
           {/* Logo and Description */}
-          <div className="col-span-2 space-y-3 sm:space-y-4 sm:col-span-2 md:col-span-1">
-            <Link href="/" className="flex items-center gap-1.5 sm:gap-2">
+          <div className="space-y-4">
+            <Link href="/" className="flex gap-3 items-center group">
               <Image
                 src="/images/search.png"
                 alt="Search Bags Logo"
-                width={32}
-                height={32}
-                className="object-contain w-8 h-8 sm:w-10 sm:h-10"
+                width={36}
+                height={36}
+                className="object-contain transition-transform duration-300 transform group-hover:scale-110"
               />
-              <span className="text-xl font-semibold tracking-tight text-teal-700 sm:text-2xl font-logo">
+              <span className="text-2xl font-bold tracking-tight text-blue-700 font-logo">
                 Search Bags
               </span>
             </Link>
-            <p className="text-xs leading-relaxed text-stone-600 sm:text-sm font-body">
+            <p className="max-w-xs text-sm leading-relaxed text-blue-600/80 font-body">
               Premium bags for every occasion. Discover our curated collection
               of high-quality bags designed for style and functionality.
             </p>
-            <div className="flex gap-2 sm:gap-3">
-              {[Facebook, Twitter, Instagram].map((Icon, index) => (
-                <Link
-                  key={index}
-                  href="#"
-                  className="p-1.5 sm:p-2 bg-stone-100 rounded-full hover:bg-teal-500 hover:text-white transition-colors duration-300 text-stone-600"
-                >
-                  <Icon size={14} className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                </Link>
-              ))}
+            <div className="flex gap-3 pt-2">
+              <Link
+                href="https://www.facebook.com/share/1HKbExT6wQ/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 text-white bg-blue-600 rounded-full shadow-lg transition-all duration-300 transform hover:bg-blue-700 hover:shadow-blue-300/20 hover:scale-110"
+              >
+                <Facebook size={16} />
+              </Link>
+              <Link
+                href="https://www.instagram.com/searchbag.in?igsh=MWdwdjZudzRuODY0OQ=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 text-white bg-blue-600 rounded-full shadow-lg transition-all duration-300 transform hover:bg-blue-700 hover:shadow-blue-300/20 hover:scale-110"
+              >
+                <Instagram size={16} />
+              </Link>
             </div>
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-3 sm:space-y-4">
-            <h3 className="text-xs font-bold tracking-wide text-teal-600 uppercase sm:text-sm">
+          <div className="space-y-4">
+            <h3 className="pb-2 text-sm font-bold tracking-wide text-blue-700 uppercase border-b border-blue-200">
               Company
             </h3>
-            <ul className="space-y-1.5 sm:space-y-2">
+            <ul className="grid grid-cols-2 gap-3 sm:grid-cols-1 sm:gap-4">
               {["About Us", "Contact", "Collections"].map(
                 (item, index) => (
-                  <li key={index}>
+                  <li key={index} className="group">
                     <Link
-                      href={item === "About Us" ? "/about" : item === "Contact" ? "/contact" : "#"}
-                      className="text-xs transition-colors duration-200 sm:text-sm text-stone-600 hover:text-teal-600"
+                      href={item === "About Us" ? "/about" : item === "Contact" ? "/contact" : "/all-products"}
+                      className="flex items-center text-sm transition-all duration-200 text-blue-600/80 hover:text-blue-700"
                     >
+                      <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                       {item}
                     </Link>
                   </li>
@@ -70,19 +80,20 @@ const Footer = () => {
           </div>
 
           {/* Categories */}
-          <div className="space-y-3 sm:space-y-4">
-            <h3 className="text-xs font-bold tracking-wide text-teal-600 uppercase sm:text-sm">
+          <div className="space-y-4">
+            <h3 className="pb-2 text-sm font-bold tracking-wide text-blue-700 uppercase border-b border-blue-200">
               Categories
             </h3>
-            <ul className="space-y-1.5 sm:space-y-2">
-              {["Travel", "Business", "Student", "Casual", "Luxury"].map(
+            <ul className="grid grid-cols-2 gap-3 sm:grid-cols-1 sm:gap-4">
+              {["Business", "Student", "Casual", "Laptop", "Complementary"].map(
                 (item, index) => (
-                  <li key={index}>
+                  <li key={index} className="group">
                     <Link
-                      href="#"
-                      className="text-xs transition-colors duration-200 sm:text-sm text-stone-600 hover:text-teal-600"
+                      href={`/all-products`}
+                      className="flex items-center text-sm transition-all duration-200 text-blue-600/80 hover:text-blue-700"
                     >
-                      {item} Bags
+                      <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                      {item === "Complementary" ? "Complementary Items" : `${item} Bags`}
                     </Link>
                   </li>
                 )
@@ -91,37 +102,66 @@ const Footer = () => {
           </div>
 
           {/* Contact */}
-          <div className="col-span-2 space-y-3 sm:space-y-4 sm:col-span-2 md:col-span-1">
-            <h3 className="text-xs font-bold tracking-wide text-teal-600 uppercase sm:text-sm">
-              Contact
+          <div className="space-y-4">
+            <h3 className="pb-2 text-sm font-bold tracking-wide text-blue-700 uppercase border-b border-blue-200">
+              Contact Us
             </h3>
-            <ul className="space-y-2 sm:space-y-3">
-              <li className="flex gap-2 items-start sm:gap-3 text-stone-600">
-                <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-teal-500 flex-shrink-0 mt-0.5" />
-                <span className="text-xs sm:text-sm">
-                  Byculla (West), Mumbai, Maharashtra, India
-                </span>
+            <ul className="space-y-3 sm:space-y-4">
+              <li>
+                <div className="flex items-start text-sm text-blue-600/80">
+                  <MapPin size={14} className="flex-shrink-0 mt-1 mr-2 text-blue-500" />
+                  <span>Byculla (West), Mumbai, Maharashtra, India</span>
+                </div>
               </li>
-              <li className="flex gap-2 items-center sm:gap-3 text-stone-600">
-                <Phone className="flex-shrink-0 w-4 h-4 text-teal-500 sm:w-5 sm:h-5" />
-                <a href="tel:+918828081163" className="text-xs transition-colors duration-200 sm:text-sm hover:text-teal-600">+91 88280 81163</a>
+              <li>
+                <a
+                  href="tel:+918828081163"
+                  className="flex items-center text-sm transition-all duration-200 text-blue-600/80 hover:text-blue-700"
+                >
+                  <Phone size={14} className="flex-shrink-0 mr-2 text-blue-500" />
+                  +91 88280 81163
+                </a>
               </li>
-              <li className="flex gap-2 items-center sm:gap-3 text-stone-600">
-                <Mail className="flex-shrink-0 w-4 h-4 text-teal-500 sm:w-5 sm:h-5" />
-                <a href="mailto:searchbags789@gmail.com" className="text-xs transition-colors duration-200 sm:text-sm hover:text-teal-600">searchbags789@gmail.com</a>
+              <li>
+                <a
+                  href="mailto:searchbags789@gmail.com"
+                  className="flex items-center text-sm transition-all duration-200 text-blue-600/80 hover:text-blue-700"
+                >
+                  <Mail size={14} className="flex-shrink-0 mr-2 text-blue-500" />
+                  searchbags789@gmail.com
+                </a>
               </li>
-              <li className="flex gap-2 items-center sm:gap-3 text-stone-600">
-                <Clock className="flex-shrink-0 w-4 h-4 text-teal-500 sm:w-5 sm:h-5" />
-                <span className="text-xs sm:text-sm">Mon-Sat: 10:00 AM - 7:00 PM</span>
+              <li>
+                <div className="flex items-center text-sm text-blue-600/80">
+                  <Clock size={14} className="flex-shrink-0 mr-2 text-blue-500" />
+                  <span>Mon-Sat: 10:00 AM - 7:00 PM</span>
+                </div>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="pt-4 mt-8 text-center border-t sm:mt-10 sm:pt-6 border-stone-200">
-          <p className="text-xs sm:text-sm text-stone-500">
-            © {new Date().getFullYear()} Search Bags. All rights reserved.
-          </p>
+        {/* WhatsApp Chat Button - Fixed Position */}
+        <div className="hidden fixed right-6 bottom-6 z-40 md:block">
+          <a
+            href="https://wa.me/918828081163"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center p-3.5 text-white bg-green-500 rounded-full shadow-lg transition-all duration-300 hover:bg-green-600 hover:scale-110"
+            aria-label="Chat on WhatsApp"
+          >
+            <MessageCircle size={24} />
+          </a>
+        </div>
+
+        <div className="pt-8 mt-12 border-t border-blue-200 md:mt-16">
+          <div className="container px-4 mx-auto">
+            <div className="flex flex-col gap-4 justify-between items-center md:flex-row">
+              <p className="text-xs text-blue-600/70">
+                © {new Date().getFullYear()} Search Bags. All rights reserved.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

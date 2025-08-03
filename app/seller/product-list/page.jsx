@@ -109,7 +109,7 @@ const ProductList = () => {
                 <input
                   type="text"
                   placeholder="Search products..."
-                  className="pl-10 pr-4 py-2 w-full border border-stone-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 font-body text-sm"
+                  className="pl-10 pr-4 py-2 w-full border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-body text-sm"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
@@ -117,7 +117,7 @@ const ProductList = () => {
 
               <Link
                 href="/seller"
-                className="flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-lg transition-colors font-body text-sm shadow-soft hover:shadow-hover"
+                className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors font-body text-sm shadow-soft hover:shadow-hover"
               >
                 <svg
                   className="w-5 h-5"
@@ -143,35 +143,35 @@ const ProductList = () => {
               <Loading />
             </div>
           ) : (
-            <div className="bg-white rounded-xl shadow-soft border border-stone-200 overflow-hidden">
+            <div className="bg-white rounded-xl shadow-soft border border-blue-100 overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="min-w-full divide-y divide-stone-200 text-sm">
-                  <thead className="bg-stone-50">
+                  <thead className="bg-blue-50">
                     <tr>
-                      <th className="px-4 py-3 text-left font-medium text-stone-500 uppercase tracking-wider">
+                      <th className="px-4 py-3 text-left font-medium text-blue-700 uppercase tracking-wider">
                         Product
                       </th>
-                      <th className="px-4 py-3 text-left hidden sm:table-cell font-medium text-stone-500 uppercase tracking-wider">
+                      <th className="px-4 py-3 text-left hidden sm:table-cell font-medium text-blue-700 uppercase tracking-wider">
                         Category
                       </th>
                       <th className="px-4 py-3 text-left font-medium text-stone-500 uppercase tracking-wider">
                         Price
                       </th>
-                      <th className="px-4 py-3 text-center font-medium text-stone-500 uppercase tracking-wider">
+                      <th className="px-4 py-3 text-center font-medium text-blue-700 uppercase tracking-wider">
                         Actions
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-stone-200">
+                  <tbody className="divide-y divide-blue-100">
                     {filteredProducts.length > 0 ? (
                       filteredProducts.map((product) => (
                         <tr
                           key={product._id}
-                          className="hover:bg-stone-50 transition-colors"
+                          className="hover:bg-blue-50/50 transition-colors"
                         >
                           <td className="px-4 py-4">
                             <div className="flex items-center gap-3">
-                              <div className="w-14 h-14 bg-stone-100 rounded-md overflow-hidden border border-stone-200 flex-shrink-0">
+                              <div className="w-14 h-14 bg-blue-50 rounded-md overflow-hidden border border-blue-100 flex-shrink-0">
                                 <Image
                                   src={product.image[0]}
                                   alt={product.name}
@@ -180,14 +180,14 @@ const ProductList = () => {
                                   className="object-cover w-full h-full"
                                 />
                               </div>
-                              <div className="text-stone-900 font-medium font-body line-clamp-2">
+                              <div className="text-blue-800 font-medium font-body line-clamp-2">
                                 {product.name}
                               </div>
                             </div>
                           </td>
 
                           <td className="px-4 py-4 hidden sm:table-cell">
-                            <span className="inline-block px-2 py-0.5 text-xs font-semibold bg-teal-100 text-teal-800 rounded-full">
+                            <span className="inline-block px-2 py-0.5 text-xs font-semibold bg-blue-100 text-blue-800 rounded-full">
                               {product.category}
                             </span>
                           </td>
@@ -199,7 +199,13 @@ const ProductList = () => {
                           <td className="px-4 py-4 text-center">
                             <div className="flex justify-center gap-3">
                               <button
-                                onClick={() => router.push(`/product/${product._id}`)}
+                                onClick={() => {
+                                  if (product && product._id) {
+                                    router.push(`/product/${product._id}`);
+                                  } else {
+                                    console.error('Invalid product data:', product);
+                                  }
+                                }}
                                 className="text-blue-600 hover:text-blue-900 transition-colors"
                                 title="View Product"
                               >
@@ -224,8 +230,14 @@ const ProductList = () => {
                                 </svg>
                               </button>
                               <button
-                                onClick={() => router.push(`/seller?edit=${product._id}`)}
-                                className="text-teal-600 hover:text-teal-900 transition-colors"
+                                onClick={() => {
+                                  if (product && product._id) {
+                                    router.push(`/seller?edit=${product._id}`);
+                                  } else {
+                                    console.error('Invalid product data:', product);
+                                  }
+                                }}
+                                className="text-yellow-600 hover:text-yellow-900 transition-colors"
                                 title="Edit Product"
                               >
                                 <svg
@@ -309,7 +321,7 @@ const ProductList = () => {
                               </p>
                               <Link
                                 href="/seller"
-                                className="inline-flex items-center text-teal-600 hover:text-teal-700 font-medium"
+                                className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium"
                               >
                                 <svg
                                   className="w-5 h-5 mr-1"

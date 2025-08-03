@@ -20,7 +20,11 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-stone-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
-        <HeaderSlider />
+        <div className="relative">
+          <HeaderSlider />
+          {/* Clean space beneath the slider */}
+          <div className="h-6"></div>
+        </div>
         <Suspense fallback={<div className="h-96 w-full animate-pulse bg-gray-200 rounded-xl mt-8"></div>}>
           <HomeProducts />
         </Suspense>

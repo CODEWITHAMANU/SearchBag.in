@@ -221,7 +221,7 @@ const AddProduct = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
-                className="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 font-body"
+                className="w-full px-4 py-2 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-body"
                 placeholder="Enter product name"
               />
             </div>
@@ -236,7 +236,7 @@ const AddProduct = () => {
                 onChange={(e) => setDescription(e.target.value)}
                 required
                 rows={4}
-                className="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 font-body"
+                className="w-full px-4 py-2 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-body"
                 placeholder="Enter product description"
               />
             </div>
@@ -250,7 +250,7 @@ const AddProduct = () => {
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 required
-                className="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 font-body"
+                className="w-full px-4 py-2 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-body"
               >
                 <option value="Casual Bags">Casual Bags</option>
                 <option value="Formal Bags">Formal Bags</option>
@@ -260,6 +260,7 @@ const AddProduct = () => {
                 <option value="Handbags">Handbags</option>
                 <option value="Wallets">Wallets</option>
                 <option value="Accessories">Accessories</option>
+                <option value="Complementary Items">Complementary Items</option>
               </select>
             </div>
 
@@ -274,7 +275,7 @@ const AddProduct = () => {
                 onChange={(e) => setPrice(e.target.value)}
                 required
                 min="0"
-                className="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 font-body"
+                className="w-full px-4 py-2 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-body"
                 placeholder="Enter price"
               />
             </div>
@@ -290,7 +291,7 @@ const AddProduct = () => {
                 onChange={(e) => setOfferPrice(e.target.value)}
                 required
                 min="0"
-                className="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 font-body"
+                className="w-full px-4 py-2 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-body"
                 placeholder="Enter offer price"
               />
             </div>
@@ -305,7 +306,7 @@ const AddProduct = () => {
                 value={whatsappNumber}
                 onChange={(e) => setWhatsappNumber(e.target.value)}
                 required
-                className="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 font-body"
+                className="w-full px-4 py-2 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-body"
                 placeholder="Enter WhatsApp number with country code"
               />
             </div>
@@ -392,7 +393,7 @@ const AddProduct = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="px-6 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors font-body shadow-soft hover:shadow-hover disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center min-w-[100px]"
+              className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-body shadow-soft hover:shadow-hover disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center min-w-[100px]"
             >
               {isSubmitting ? (
                 <svg

@@ -6,24 +6,23 @@ const Banner = () => {
   const router = useRouter();
 
   return (
-    <div className="relative bg-gradient-to-r from-teal-50 to-stone-50 py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-12 border-b border-gray-200 shadow-lg rounded-2xl overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden opacity-10">
-        <div className="absolute -top-24 -left-24 w-64 h-64 rounded-full bg-teal-400 blur-3xl"></div>
-        <div className="absolute -bottom-32 -right-32 w-80 h-80 rounded-full bg-teal-500 blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[url('/noise.svg')] opacity-30"></div>
-      </div>
+    <section className="overflow-hidden relative px-4 py-24 bg-gradient-to-r from-blue-800 via-blue-700 to-blue-600 rounded-2xl border border-blue-500 shadow-xl sm:px-6 lg:px-8">
+      {/* Decorative elements */}
+      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b to-transparent from-blue-500/30"></div>
+      <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full blur-3xl bg-blue-400/30"></div>
+      <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full blur-3xl bg-blue-300/30"></div>
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[url('/noise.svg')] opacity-30"></div>
       
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
+      <div className="relative z-10 mx-auto max-w-7xl">
+        <div className="flex flex-col gap-10 justify-between items-center md:flex-row md:gap-16">
           {/* Left Content - Brand Info */}
-          <div className="space-y-4 sm:space-y-6 text-center md:text-left">
+          <div className="space-y-6 text-center sm:space-y-8 md:text-left">
             <div className="flex flex-col items-center md:items-start">
-              <div className="flex items-center gap-2 sm:gap-3">
-                <div className="h-10 w-10 sm:h-12 sm:w-12 bg-teal-700 rounded-full flex items-center justify-center">
+              <div className="flex gap-3 items-center sm:gap-4">
+                <div className="flex justify-center items-center w-12 h-12 bg-gradient-to-br from-blue-300 to-blue-100 rounded-full shadow-lg transition-transform duration-300 transform sm:h-14 sm:w-14 hover:rotate-12">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 sm:h-6 sm:w-6 text-white"
+                    className="w-6 h-6 text-blue-800 sm:h-7 sm:w-7"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -36,48 +35,44 @@ const Banner = () => {
                     />
                   </svg>
                 </div>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-teal-700 tracking-tight">
+                <h1 className="text-3xl font-bold tracking-tight text-white drop-shadow-md sm:text-4xl md:text-5xl">
                   SEARCH BAG
                 </h1>
               </div>
-              <p className="text-xs sm:text-sm text-gray-500 italic mt-1 font-body">Since 2007</p>
+              <p className="px-4 py-1 mt-2 text-sm italic text-blue-100 rounded-full border shadow-md sm:text-base font-body bg-blue-900/30 border-blue-400/30">Since 2007</p>
             </div>
 
-            <div className="space-y-2 sm:space-y-3">
-              <p className="text-base sm:text-lg font-medium text-gray-700 font-body">
+            <div className="p-4 space-y-2 rounded-xl border shadow-md backdrop-blur-sm sm:space-y-3 bg-blue-900/30 border-blue-400/30">
+              <p className="text-base font-medium text-blue-100 sm:text-lg font-body">
                 Manufacturer & Wholesaler
               </p>
-              <p className="text-lg sm:text-xl font-semibold text-teal-600 font-heading">
+              <p className="text-lg font-semibold text-white drop-shadow-sm sm:text-xl font-heading">
                 Soft Luggage Experts
               </p>
             </div>
 
-            <div className="flex flex-wrap justify-center md:justify-start gap-1.5 sm:gap-2 text-xs sm:text-sm text-gray-600 font-body">
-              {[
-                "Laptop Bags",
-                "College Bags",
-                "School Bags",
-                "Luggage",
-                "Traveling Bags",
-              ].map((item, index) => (
-                <span
-                  key={index}
-                  className="bg-white border border-gray-200 px-2 sm:px-3 py-1 rounded-full shadow-soft hover:bg-teal-50 hover:border-teal-200 transition-colors"
-                >
-                  {item}
-                </span>
-              ))}
+            <div className="flex flex-wrap gap-2 justify-center text-xs text-blue-100 md:justify-start sm:text-sm font-body">
+              {
+                ["Laptop Bags", "College Bags", "School Bags", "Luggage", "Traveling Bags",].map((item, index) => (
+                  <span
+                    key={index}
+                    className="bg-blue-900/40 border border-blue-400/30 px-3 sm:px-4 py-1.5 rounded-full shadow-md hover:bg-blue-800/60 hover:border-blue-300/50 hover:text-white transition-all duration-300 transform hover:-translate-y-1"
+                  >
+                    {item}
+                  </span>
+                ))
+              }
             </div>
           </div>
 
           {/* Right Content - Features */}
-          <div className="space-y-4 sm:space-y-6 text-center md:text-right mt-6 md:mt-0">
+          <div className="p-4 mt-6 space-y-4 text-center rounded-2xl border shadow-lg backdrop-blur-sm sm:space-y-6 md:text-right md:mt-0 bg-blue-900/30 sm:p-5 border-blue-400/30">
             <div className="space-y-2 sm:space-y-3">
               <div className="flex flex-col md:items-end">
-                <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-teal-50 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
+                <div className="inline-flex items-center gap-2 bg-blue-200/30 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-md border border-blue-300/30">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 sm:h-5 sm:w-5 text-teal-600"
+                    className="w-4 h-4 text-blue-200 animate-pulse sm:h-5 sm:w-5"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >
@@ -87,30 +82,30 @@ const Banner = () => {
                       clipRule="evenodd"
                     />
                   </svg>
-                  <p className="text-base sm:text-lg font-medium text-gray-700 font-body">
+                  <p className="text-base font-medium text-blue-100 sm:text-lg font-body">
                     Bulk Deals · Huge Variety · Best Industry Prices
                   </p>
                 </div>
               </div>
-              <p className="text-lg sm:text-xl font-semibold text-teal-600 font-heading">
+              <p className="text-lg font-semibold text-white drop-shadow-sm sm:text-xl font-heading">
                 Specialist in Complementary Items
               </p>
             </div>
 
-            <div className="flex flex-col items-center md:items-end space-y-2 sm:space-y-3">
+            <div className="flex flex-col items-center space-y-3 md:items-end sm:space-y-4">
               <button
                 onClick={() => router.push("/all-products")}
-                className="relative bg-gradient-to-r from-teal-700 to-teal-500 hover:from-teal-600 hover:to-teal-400 text-white px-6 sm:px-10 py-2 sm:py-3 rounded-full text-base sm:text-lg font-medium transition-all duration-300 shadow-soft hover:shadow-hover group font-body"
+                className="relative px-6 py-2 text-base font-medium text-blue-800 bg-gradient-to-r from-blue-300 to-blue-100 rounded-full shadow-xl transition-all duration-300 transform hover:from-blue-200 hover:to-white sm:px-8 sm:py-3 sm:text-lg hover:shadow-2xl group font-body hover:-translate-y-1"
               >
                 <span className="relative z-10 mr-2">Explore Products</span>
-                <span className="absolute right-4 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:right-6 transition-all duration-300">
+                <span className="absolute right-6 top-1/2 text-xl opacity-0 transition-all duration-300 transform -translate-y-1/2 group-hover:opacity-100 group-hover:right-8">
                   →
                 </span>
               </button>
-              <div className="flex items-center gap-1.5 sm:gap-2">
+              <div className="flex gap-2 items-center mt-2 sm:gap-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-gray-400"
+                  className="w-4 h-4 text-blue-200 sm:h-5 sm:w-5"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -122,7 +117,7 @@ const Banner = () => {
                     d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
                   />
                 </svg>
-                <p className="text-gray-500 text-xs sm:text-sm hover:text-teal-600 transition-colors font-body">
+                <p className="text-sm font-medium text-blue-100 transition-colors sm:text-base hover:text-white font-body">
                   www.searchbag.in
                 </p>
               </div>
@@ -130,7 +125,7 @@ const Banner = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

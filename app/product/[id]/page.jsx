@@ -26,12 +26,12 @@ const Product = () => {
   }, [id, products]);
 
   return productData ? (
-    <div className="min-h-screen bg-stone-50 animate-fadeIn">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white animate-fadeIn">
       <div className="container px-4 pt-8 pb-12 mx-auto space-y-8 max-w-7xl sm:px-6 lg:px-8 sm:pt-14 sm:pb-20 sm:space-y-16">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 sm:gap-8 lg:gap-16">
           {/* Product Images */}
           <div className="px-2 sm:px-4 lg:px-8">
-            <div className="overflow-hidden p-3 mb-4 bg-white rounded-xl border transition-all duration-300 border-stone-200 sm:p-6 sm:mb-6 shadow-soft hover:shadow-lg">
+            <div className="overflow-hidden p-3 mb-4 bg-white rounded-xl border transition-all duration-300 border-blue-200 sm:p-6 sm:mb-6 shadow-soft hover:shadow-lg">
               <Image
                 src={mainImage || productData.image[0]}
                 alt={productData.name}
@@ -49,8 +49,8 @@ const Product = () => {
                   onClick={() => setMainImage(image)}
                   className={`cursor-pointer rounded-lg overflow-hidden bg-white border p-1 sm:p-2 transition-all ${
                     mainImage === image
-                      ? "border-teal-500 shadow-md scale-105"
-                      : "border-stone-200 hover:border-teal-300"
+                      ? "border-blue-500 shadow-md scale-105"
+                      : "border-blue-200 hover:border-blue-300"
                   }`}
                 >
                   <Image
@@ -67,18 +67,18 @@ const Product = () => {
 
           {/* Product Details */}
           <div className="flex flex-col px-2 sm:px-4">
-            <h1 className="mb-3 text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl font-heading text-stone-900 sm:mb-4">
+            <h1 className="mb-3 text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl font-heading text-blue-900 sm:mb-4">
               {productData.name}
             </h1>
             
             <div className="flex flex-wrap gap-2 items-baseline mb-4 sm:gap-3 sm:mb-6">
-              <span className="text-2xl font-bold text-teal-600 sm:text-3xl">
+              <span className="text-2xl font-bold text-blue-600 sm:text-3xl">
                 ₹{productData.offerPrice}
               </span>
               <span className="text-base line-through sm:text-lg text-stone-500">
                 ₹{productData.price}
               </span>
-              <span className="text-xs sm:text-sm font-medium bg-teal-100 text-teal-800 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full">
+              <span className="text-xs sm:text-sm font-medium bg-blue-100 text-blue-800 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full">
                 {Math.round(
                   ((productData.price - productData.offerPrice) /
                     productData.price) *
@@ -88,8 +88,8 @@ const Product = () => {
               </span>
             </div>
 
-            <div className="p-4 mb-4 bg-white rounded-xl border sm:mb-6 sm:p-6 border-stone-200 shadow-soft">
-              <h3 className="mb-2 text-lg font-bold tracking-tight sm:text-xl text-stone-800 sm:mb-3">
+            <div className="p-4 mb-4 bg-white rounded-xl border sm:mb-6 sm:p-6 border-blue-200 shadow-soft">
+              <h3 className="mb-2 text-lg font-bold tracking-tight sm:text-xl text-blue-800 sm:mb-3">
                 Description
               </h3>
               <p className="text-sm leading-relaxed sm:text-base text-stone-700 font-body text-balance">
@@ -97,21 +97,21 @@ const Product = () => {
               </p>
             </div>
 
-            <div className="py-4 my-4 border-t border-b border-stone-200 sm:py-6 sm:my-6">
+            <div className="py-4 my-4 border-t border-b border-blue-100 sm:py-6 sm:my-6">
               <table className="w-full border-collapse table-auto">
-                <tbody className="divide-y divide-stone-100">
+                <tbody className="divide-y divide-blue-100">
                   <tr className="py-2">
-                    <td className="py-2 text-xs font-medium tracking-wide sm:py-3 text-stone-600 sm:text-sm">
+                    <td className="py-2 text-xs font-medium tracking-wide sm:py-3 text-blue-600 sm:text-sm">
                       BRAND
                     </td>
-                    <td className="py-2 text-sm sm:py-3 text-stone-800 font-body sm:text-base">SearchBag</td>
+                    <td className="py-2 text-sm sm:py-3 text-blue-800 font-body sm:text-base">SearchBag</td>
                   </tr>
                   <tr className="py-2">
-                    <td className="py-2 text-xs font-medium tracking-wide sm:py-3 text-stone-600 sm:text-sm">
+                    <td className="py-2 text-xs font-medium tracking-wide sm:py-3 text-blue-600 sm:text-sm">
                       CATEGORY
                     </td>
                     <td className="py-2 sm:py-3">
-                      <span className="bg-teal-100 text-teal-800 text-xs px-2 py-0.5 sm:px-2.5 sm:py-1 font-medium rounded-full">
+                      <span className="bg-blue-100 text-blue-800 text-xs px-2 py-0.5 sm:px-2.5 sm:py-1 font-medium rounded-full">
                         {productData.category}
                       </span>
                     </td>
@@ -129,7 +129,7 @@ const Product = () => {
                 )}`;
                 window.open(whatsappUrl, "_blank");
               }}
-              className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-teal-600 to-teal-500 hover:from-teal-700 hover:to-teal-600 text-white py-3 sm:py-4 px-4 sm:px-6 rounded-xl transition duration-300 shadow-md hover:shadow-lg text-base sm:text-lg font-medium mt-4 transform hover:scale-[1.02]"
+              className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white py-3 sm:py-4 px-4 sm:px-6 rounded-xl transition duration-300 shadow-md hover:shadow-lg text-base sm:text-lg font-medium mt-4 transform hover:scale-[1.02]"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -147,10 +147,10 @@ const Product = () => {
         {/* Related Products */}
         <div className="flex flex-col items-center mt-8 sm:mt-16">
           <div className="flex flex-col items-center mb-6 sm:mb-10">
-            <h2 className="text-2xl font-bold tracking-tight text-center sm:text-3xl font-heading text-stone-900">
+            <h2 className="text-2xl font-bold tracking-tight text-center sm:text-3xl font-heading text-blue-900">
               You May Also Like
             </h2>
-            <div className="w-24 sm:w-32 h-0.5 bg-teal-500 mt-2"></div>
+            <div className="w-24 sm:w-32 h-0.5 bg-gradient-to-r from-blue-600 to-blue-400 mt-2"></div>
           </div>
 
           <div className="grid grid-cols-2 gap-3 mt-6 w-full sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 sm:gap-6 sm:mt-8">
@@ -166,7 +166,7 @@ const Product = () => {
 
           <button
             onClick={() => router.push("/all-products")}
-            className="mt-8 sm:mt-12 px-6 sm:px-8 py-2.5 sm:py-3 border-2 border-teal-500 text-teal-600 hover:bg-teal-500 hover:text-white transition duration-300 text-xs sm:text-sm font-medium rounded-lg shadow-soft hover:shadow-md"
+            className="mt-8 sm:mt-12 px-6 sm:px-8 py-2.5 sm:py-3 border-2 border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white transition duration-300 text-xs sm:text-sm font-medium rounded-lg shadow-soft hover:shadow-md"
           >
             View All Products
           </button>
