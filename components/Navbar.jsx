@@ -96,6 +96,12 @@ const Navbar = () => {
           <Phone className="mr-1.5 w-3 h-3" /> +91 93261 23535
         </a>
         <a
+          href="tel:+918828081163"
+          className="flex items-center transition-colors duration-200 hover:text-blue-600"
+        >
+          <Phone className="mr-1.5 w-3 h-3" /> +91 88280 81163
+        </a>
+        <a
           href="mailto:searchbags789@gmail.com"
           className="flex items-center transition-colors duration-200 hover:text-blue-600"
         >
@@ -280,6 +286,10 @@ const Navbar = () => {
             <div className="flex gap-2 items-center py-2 text-sm font-medium border-b border-blue-100">
               <Phone className="w-4 h-4 text-blue-500" />
               <a href="tel:+919326123535">+91 93261 23535</a>
+            </div>
+            <div className="flex gap-2 items-center py-2 text-sm font-medium border-b border-blue-100">
+              <Phone className="w-4 h-4 text-blue-500" />
+              <a href="tel:+918828081163">+91 88280 81163</a>
             </div>
             <div className="flex gap-2 items-center py-2 text-sm font-medium">
               <Mail className="w-4 h-4 text-blue-500" />

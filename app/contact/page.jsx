@@ -51,16 +51,16 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-blue-900 to-blue-700 py-16 sm:py-20 md:py-24 overflow-hidden">
+      <div className="overflow-hidden relative py-16 bg-gradient-to-r from-blue-900 to-blue-700 sm:py-20 md:py-24">
         <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-10"></div>
-        <div className="absolute -top-24 -right-24 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-blue-300/30 rounded-full blur-3xl"></div>
-        <div className="container mx-auto px-4 sm:px-6 relative">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white mb-4 sm:mb-6 drop-shadow-md">
+        <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full blur-3xl bg-blue-500/20"></div>
+        <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full blur-3xl bg-blue-300/30"></div>
+        <div className="container relative px-4 mx-auto sm:px-6">
+          <div className="mx-auto max-w-3xl text-center">
+            <h1 className="mb-4 text-3xl font-bold text-white drop-shadow-md sm:text-4xl md:text-5xl font-heading sm:mb-6">
               CONTACT US
             </h1>
-            <p className="text-base sm:text-lg font-body text-blue-100 leading-relaxed px-2 backdrop-blur-sm bg-blue-900/10 rounded-lg py-3 mx-auto max-w-2xl border border-blue-200/20 shadow-lg">
+            <p className="px-2 py-3 mx-auto max-w-2xl text-base leading-relaxed text-blue-100 rounded-lg border shadow-lg backdrop-blur-sm sm:text-lg font-body bg-blue-900/10 border-blue-200/20">
               Have questions about our products? We're here to help and answer
               any questions you might have.
             </p>
@@ -69,25 +69,25 @@ const ContactPage = () => {
       </div>
 
       {/* Content Section */}
-      <div className="py-12 sm:py-16 md:py-20 px-4 sm:px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col lg:flex-row gap-8 sm:gap-10 lg:gap-12">
+      <div className="px-4 py-12 sm:py-16 md:py-20 sm:px-6">
+        <div className="mx-auto max-w-6xl">
+          <div className="flex flex-col gap-8 lg:flex-row sm:gap-10 lg:gap-12">
             {/* Contact Form */}
             <div className="lg:w-1/2">
-              <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-blue-100 relative overflow-hidden">
+              <div className="overflow-hidden relative p-6 bg-white rounded-xl border border-blue-100 shadow-lg sm:p-8">
                 <div className="absolute -top-24 -right-24 w-48 h-48 bg-blue-100 rounded-full opacity-50 blur-3xl"></div>
                 <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-blue-50 rounded-full opacity-50 blur-3xl"></div>
                 
                 <div className="relative z-10">
-                  <h2 className="text-xl sm:text-2xl font-heading font-bold text-blue-900 mb-4 sm:mb-6">
+                  <h2 className="mb-4 text-xl font-bold text-blue-900 sm:text-2xl font-heading sm:mb-6">
                     Send Us a Message
                   </h2>
-                  <div className="w-12 sm:w-16 h-1 bg-blue-600 mb-6 sm:mb-8"></div>
+                  <div className="mb-6 w-12 h-1 bg-blue-600 sm:w-16 sm:mb-8"></div>
                   <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                     <div>
                       <label
                         htmlFor="name"
-                        className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2"
+                        className="block mb-1 text-sm font-medium text-gray-700 sm:mb-2"
                       >
                         Your Name
                       </label>
@@ -105,7 +105,7 @@ const ContactPage = () => {
                     <div>
                       <label
                         htmlFor="email"
-                        className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2"
+                        className="block mb-1 text-sm font-medium text-gray-700 sm:mb-2"
                       >
                         Email Address
                       </label>
@@ -123,7 +123,7 @@ const ContactPage = () => {
                     <div>
                       <label
                         htmlFor="subject"
-                        className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2"
+                        className="block mb-1 text-sm font-medium text-gray-700 sm:mb-2"
                       >
                         Subject
                       </label>
@@ -141,7 +141,7 @@ const ContactPage = () => {
                     <div>
                       <label
                         htmlFor="message"
-                        className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2"
+                        className="block mb-1 text-sm font-medium text-gray-700 sm:mb-2"
                       >
                         Message
                       </label>
@@ -167,7 +167,7 @@ const ContactPage = () => {
                     </button>
 
                     {isSubmitted && (
-                      <div className="mt-3 sm:mt-4 p-3 sm:p-4 bg-blue-50 text-blue-700 rounded-lg border-l-4 border-blue-600 text-sm sm:text-base shadow-md">
+                      <div className="p-3 mt-3 text-sm text-blue-700 bg-blue-50 rounded-lg border-l-4 border-blue-600 shadow-md sm:mt-4 sm:p-4 sm:text-base">
                         Thank you for your message! We'll get back to you soon.
                       </div>
                     )}
@@ -178,21 +178,21 @@ const ContactPage = () => {
 
             {/* Contact Info */}
             <div className="lg:w-1/2">
-              <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-blue-100 mb-6 sm:mb-8 relative overflow-hidden">
+              <div className="overflow-hidden relative p-6 mb-6 bg-white rounded-xl border border-blue-100 shadow-lg sm:p-8 sm:mb-8">
                 <div className="absolute -top-24 -right-24 w-48 h-48 bg-blue-100 rounded-full opacity-50 blur-3xl"></div>
                 <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-blue-50 rounded-full opacity-50 blur-3xl"></div>
                 
                 <div className="relative z-10">
-                  <h2 className="text-xl sm:text-2xl font-heading font-bold text-blue-900 mb-4 sm:mb-6">
+                  <h2 className="mb-4 text-xl font-bold text-blue-900 sm:text-2xl font-heading sm:mb-6">
                     Our Store
                   </h2>
-                  <div className="w-12 sm:w-16 h-1 bg-blue-600 mb-6 sm:mb-8"></div>
+                  <div className="mb-6 w-12 h-1 bg-blue-600 sm:w-16 sm:mb-8"></div>
                   <div className="space-y-5 sm:space-y-6">
-                    <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="flex gap-3 items-start sm:gap-4">
                       <div className="bg-blue-100 p-2.5 sm:p-3 rounded-lg shadow-md">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600"
+                          className="w-5 h-5 text-blue-600 sm:h-6 sm:w-6"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -215,20 +215,27 @@ const ContactPage = () => {
                         <h3 className="text-base sm:text-lg font-heading font-semibold text-blue-900 mb-0.5 sm:mb-1">
                           Address
                         </h3>
-                        <p className="text-sm sm:text-base text-gray-600 font-body bg-blue-50/50 p-2 rounded-lg border border-blue-100 mt-1 shadow-sm">
-                          Shop No. 28, Lohe Ki Chawl, Mumbai Bag Market
-                        </p>
-                        <p className="text-sm sm:text-base text-gray-600 font-body bg-blue-50/50 p-2 rounded-lg border border-blue-100 mt-1 shadow-sm">
-                          Maulana Azad Road, Madanpura, Mumbai - 400 008
-                        </p>
+                        <a 
+                          href="https://maps.app.goo.gl/TkMbQxgaCfq13wn58"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block"
+                        >
+                          <p className="p-2 mt-1 text-sm text-gray-600 rounded-lg border border-blue-100 shadow-sm transition-colors duration-200 sm:text-base font-body bg-blue-50/50 hover:text-blue-600">
+                            Shop No. 28, Lohe Ki Chawl, Mumbai Bag Market
+                          </p>
+                          <p className="p-2 mt-1 text-sm text-gray-600 rounded-lg border border-blue-100 shadow-sm transition-colors duration-200 sm:text-base font-body bg-blue-50/50 hover:text-blue-600">
+                            Maulana Azad Road, Madanpura, Mumbai - 400 008
+                          </p>
+                        </a>
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="flex gap-3 items-start sm:gap-4">
                       <div className="bg-blue-100 p-2.5 sm:p-3 rounded-lg shadow-md">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600"
+                          className="w-5 h-5 text-blue-600 sm:h-6 sm:w-6"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -245,17 +252,20 @@ const ContactPage = () => {
                         <h3 className="text-base sm:text-lg font-heading font-semibold text-blue-900 mb-0.5 sm:mb-1">
                           Phone
                         </h3>
-                        <a href="tel:+919326123535" className="text-sm sm:text-base text-gray-600 hover:text-blue-600 transition-colors duration-200 font-body bg-blue-50/50 p-2 rounded-lg border border-blue-100 mt-1 shadow-sm block">
+                        <a href="tel:+919326123535" className="block p-2 mt-1 text-sm text-gray-600 rounded-lg border border-blue-100 shadow-sm transition-colors duration-200 sm:text-base hover:text-blue-600 font-body bg-blue-50/50">
                           +91 93261 23535
+                        </a>
+                         <a href="tel:+918828081163" className="block p-2 mt-1 text-sm text-gray-600 rounded-lg border border-blue-100 shadow-sm transition-colors duration-200 sm:text-base hover:text-blue-600 font-body bg-blue-50/50">
+                          +91 88280 81163
                         </a>
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="flex gap-3 items-start sm:gap-4">
                       <div className="bg-blue-100 p-2.5 sm:p-3 rounded-lg shadow-md">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600"
+                          className="w-5 h-5 text-blue-600 sm:h-6 sm:w-6"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -272,7 +282,7 @@ const ContactPage = () => {
                         <h3 className="text-base sm:text-lg font-heading font-semibold text-blue-900 mb-0.5 sm:mb-1">
                           Email
                         </h3>
-                        <a href="mailto:searchbags789@gmail.com" className="text-sm sm:text-base text-gray-600 hover:text-blue-600 transition-colors duration-200 font-body bg-blue-50/50 p-2 rounded-lg border border-blue-100 mt-1 shadow-sm block">
+                        <a href="mailto:searchbags789@gmail.com" className="block p-2 mt-1 text-sm text-gray-600 rounded-lg border border-blue-100 shadow-sm transition-colors duration-200 sm:text-base hover:text-blue-600 font-body bg-blue-50/50">
                           searchbags789@gmail.com
                         </a>
                       </div>
@@ -281,35 +291,35 @@ const ContactPage = () => {
                 </div>
               </div>
 
-              <div className="bg-white p-6 sm:p-8 rounded-xl shadow-md border border-blue-100 relative overflow-hidden">
-                <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-blue-50 rounded-full opacity-50 blur-3xl"></div>
+              <div className="overflow-hidden relative p-6 bg-white rounded-xl border border-blue-100 shadow-md sm:p-8">
+                <div className="absolute -right-24 -bottom-24 w-48 h-48 bg-blue-50 rounded-full opacity-50 blur-3xl"></div>
                 <div className="relative z-10">
-                  <h2 className="text-xl sm:text-2xl font-heading font-bold text-blue-900 mb-4 sm:mb-6">
+                  <h2 className="mb-4 text-xl font-bold text-blue-900 sm:text-2xl font-heading sm:mb-6">
                     Business Hours
                   </h2>
-                  <div className="w-12 sm:w-16 h-1 bg-blue-600 mb-6 sm:mb-8"></div>
+                  <div className="mb-6 w-12 h-1 bg-blue-600 sm:w-16 sm:mb-8"></div>
                   <ul className="space-y-3 sm:space-y-4">
-                    <li className="flex justify-between pb-2 sm:pb-3 border-b border-blue-100">
-                      <span className="text-sm sm:text-base text-blue-700/70 font-body font-medium">
+                    <li className="flex justify-between pb-2 border-b border-blue-100 sm:pb-3">
+                      <span className="text-sm font-medium sm:text-base text-blue-700/70 font-body">
                         Monday - Friday
                       </span>
-                      <span className="text-sm sm:text-base font-semibold font-body text-blue-900">
+                      <span className="text-sm font-semibold text-blue-900 sm:text-base font-body">
                         10:00 AM - 7:00 PM
                       </span>
                     </li>
-                    <li className="flex justify-between pb-2 sm:pb-3 border-b border-blue-100">
-                      <span className="text-sm sm:text-base text-blue-700/70 font-body font-medium">
+                    <li className="flex justify-between pb-2 border-b border-blue-100 sm:pb-3">
+                      <span className="text-sm font-medium sm:text-base text-blue-700/70 font-body">
                         Saturday
                       </span>
-                      <span className="text-sm sm:text-base font-semibold font-body text-blue-900">
+                      <span className="text-sm font-semibold text-blue-900 sm:text-base font-body">
                         10:00 AM - 5:00 PM
                       </span>
                     </li>
                     <li className="flex justify-between">
-                      <span className="text-sm sm:text-base text-blue-700/70 font-body font-medium">
+                      <span className="text-sm font-medium sm:text-base text-blue-700/70 font-body">
                         Sunday
                       </span>
-                      <span className="text-sm sm:text-base font-semibold font-body text-blue-900">
+                      <span className="text-sm font-semibold text-blue-900 sm:text-base font-body">
                         Closed
                       </span>
                     </li>

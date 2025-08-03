@@ -117,10 +117,15 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3 sm:space-y-4">
               <li>
-                <div className="flex items-start text-sm text-blue-600/80">
+                <a 
+                  href="https://maps.app.goo.gl/TkMbQxgaCfq13wn58"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start text-sm text-blue-600/80 hover:text-blue-700 transition-all duration-200"
+                >
                   <MapPin size={14} className="flex-shrink-0 mt-1 mr-2 text-blue-500" />
                   <span>Shop No. 28, Lohe Ki Chawl, Mumbai Bag Market, Maulana Azad Road, Madanpura, Mumbai - 400 008.</span>
-                </div>
+                </a>
               </li>
               <li>
                 <a
@@ -129,6 +134,15 @@ const Footer = () => {
                 >
                   <Phone size={14} className="flex-shrink-0 mr-2 text-blue-500" />
                   +91 93261 23535
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:+918828081163"
+                  className="flex items-center text-sm transition-all duration-200 text-blue-600/80 hover:text-blue-700"
+                >
+                  <Phone size={14} className="flex-shrink-0 mr-2 text-blue-500" />
+                  +91 88280 81163
                 </a>
               </li>
               <li>
