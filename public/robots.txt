@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Prevent old website content from appearing in search results
+Disallow: /old-site/
+Disallow: /previous-design/
+
+# Allow search engines to crawl the site
+Sitemap: https://www.searchbag.in/sitemap.xml

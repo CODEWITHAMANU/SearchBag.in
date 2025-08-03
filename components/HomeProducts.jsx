@@ -42,19 +42,19 @@ const HomeProducts = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center pt-16 sm:pt-20 pb-12 sm:pb-16 px-4 sm:px-6">
+    <div className="flex flex-col items-center px-4 pt-16 pb-12 sm:pt-20 sm:pb-16 sm:px-6">
       <div className="flex flex-col items-center w-full max-w-7xl">
-        <div className="text-center mb-12 sm:mb-16 px-2 sm:px-0 relative">
-          <div className="absolute -top-16 -left-16 w-32 h-32 bg-blue-300/20 rounded-full blur-xl"></div>
-          <div className="absolute -top-8 right-1/4 w-24 h-24 bg-blue-400/10 rounded-full blur-lg"></div>
-          <div className="absolute -bottom-12 left-1/2 w-40 h-40 bg-blue-500/10 rounded-full blur-xl"></div>
-          <div className="absolute -bottom-10 right-1/4 w-28 h-28 bg-blue-200/20 rounded-full blur-lg"></div>
+        <div className="relative px-2 mb-12 text-center sm:mb-16 sm:px-0">
+          <div className="absolute -top-16 -left-16 w-32 h-32 rounded-full blur-xl bg-blue-300/20"></div>
+          <div className="absolute -top-8 right-1/4 w-24 h-24 rounded-full blur-lg bg-blue-400/10"></div>
+          <div className="absolute -bottom-12 left-1/2 w-40 h-40 rounded-full blur-xl bg-blue-500/10"></div>
+          <div className="absolute -bottom-10 right-1/4 w-28 h-28 rounded-full blur-lg bg-blue-200/20"></div>
           <div className="relative z-10">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 font-heading text-blue-800 tracking-tight">
+            <h2 className="mb-4 text-3xl font-bold tracking-tight text-blue-800 sm:text-4xl md:text-5xl sm:mb-6 font-heading">
               DISCOVER OUR COLLECTION
             </h2>
             <div className="w-24 sm:w-32 h-1.5 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto rounded-full"></div>
-            <p className="mt-6 sm:mt-8 text-blue-700 max-w-md sm:max-w-2xl mx-auto text-base sm:text-lg leading-relaxed font-body px-1 sm:px-0">
+            <p className="px-1 mx-auto mt-6 max-w-md text-base leading-relaxed text-blue-700 sm:mt-8 sm:max-w-2xl sm:text-lg font-body sm:px-0">
               Handcrafted bags designed for every occasion, combining premium
               materials with timeless elegance
             </p>
@@ -62,42 +62,42 @@ const HomeProducts = () => {
         </div>
 
         {isLoading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 w-full">
+          <div className="grid grid-cols-1 gap-6 w-full sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-8">
             {[...Array(8)].map((_, i) => (
               <div
                 key={i}
                 className="bg-white rounded-2xl overflow-hidden aspect-[3/4] animate-pulse border border-blue-100 shadow-soft"
               >
-                <div className="bg-blue-100 h-3/4 w-full"></div>
+                <div className="w-full h-3/4 bg-blue-100"></div>
                 <div className="p-5 space-y-3">
-                  <div className="h-4 bg-blue-100 rounded w-3/4"></div>
-                  <div className="h-4 bg-blue-100 rounded w-1/2"></div>
-                  <div className="h-5 bg-blue-100 rounded w-1/3"></div>
+                  <div className="w-3/4 h-4 bg-blue-100 rounded"></div>
+                  <div className="w-1/2 h-4 bg-blue-100 rounded"></div>
+                  <div className="w-1/3 h-5 bg-blue-100 rounded"></div>
                 </div>
               </div>
             ))}
           </div>
         ) : products.length > 0 ? (
           <div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 w-full">
+            <div className="grid grid-cols-1 gap-6 w-full sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-8">
               {products.map((product, index) => (
                 <ProductCard key={index} product={product} />
               ))}
             </div>
             <button
-              onClick={() => router.push("/all-products?category=all")}
+              onClick={() => router.push("/all-products")}
               className="mt-12 sm:mt-16 px-6 sm:px-10 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full hover:from-blue-500 hover:to-blue-600 transition-all duration-300 font-medium uppercase tracking-wide text-sm sm:text-base shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 focus:ring-2 focus:ring-blue-300 focus:ring-offset-2 focus:outline-none"
             >
               Explore All Collections
             </button>
           </div>
         ) : (
-          <div className="text-center py-16">
-            <div className="bg-gradient-to-br from-white to-blue-50 p-6 sm:p-10 rounded-2xl max-w-md mx-auto border border-blue-100 shadow-soft">
-              <div className="bg-blue-100/30 p-5 rounded-full w-24 sm:w-32 h-24 sm:h-32 flex items-center justify-center mx-auto mb-6">
+          <div className="py-16 text-center">
+            <div className="p-6 mx-auto max-w-md bg-gradient-to-br from-white to-blue-50 rounded-2xl border border-blue-100 sm:p-10 shadow-soft">
+              <div className="flex justify-center items-center p-5 mx-auto mb-6 w-24 h-24 rounded-full bg-blue-100/30 sm:w-32 sm:h-32">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-16 sm:h-20 w-16 sm:w-20 mx-auto text-blue-600"
+                  className="mx-auto w-16 h-16 text-blue-600 sm:h-20 sm:w-20"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -110,10 +110,10 @@ const HomeProducts = () => {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold mt-4 mb-3 text-blue-800 font-heading">
+              <h3 className="mt-4 mb-3 text-xl font-bold text-blue-800 sm:text-2xl font-heading">
                 New Collections Coming Soon
               </h3>
-              <p className="text-blue-700 mb-6 leading-relaxed font-body text-sm sm:text-base">
+              <p className="mb-6 text-sm leading-relaxed text-blue-700 font-body sm:text-base">
                 We're preparing our latest designs. Sign up to be the first to
                 know when we launch.
               </p>

@@ -26,6 +26,10 @@ const AllProducts = () => {
       setActiveFilter(category);
     }
     
+    // Force a context refresh by setting the category again
+    // This will trigger the useEffect in AppContext to fetch fresh data
+    setCategory(prev => prev); // This forces a refresh without changing the value
+    
     console.log("URL category param:", categoryParam);
     console.log("Active filter set to:", activeFilter);
   }, [searchParams, category, setCategory]);

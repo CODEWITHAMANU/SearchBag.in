@@ -30,7 +30,9 @@ const AppContextProvider = ({ children }) => {
         // Use environment variable for API base URL if available, otherwise use window.location.origin
         const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || window.location.origin;
         const apiUrl = `${baseUrl}/api/product/list`;
-        const response = await fetch(apiUrl);
+        // Add cache-busting parameter to ensure fresh data
+        const cacheBuster = new Date().getTime();
+        const response = await fetch(`${apiUrl}?_=${cacheBuster}`, { cache: 'no-store' });
         const data = await response.json();
         
         console.log("API Response:", data); // Add logging to see API response

@@ -19,21 +19,15 @@ const Banner = () => {
           <div className="space-y-6 text-center sm:space-y-8 md:text-left">
             <div className="flex flex-col items-center md:items-start">
               <div className="flex gap-3 items-center sm:gap-4">
-                <div className="flex justify-center items-center w-12 h-12 bg-gradient-to-br from-blue-300 to-blue-100 rounded-full shadow-lg transition-transform duration-300 transform sm:h-14 sm:w-14 hover:rotate-12">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-6 h-6 text-blue-800 sm:h-7 sm:w-7"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
-                    />
-                  </svg>
+                <div className="flex overflow-hidden justify-center items-center w-14 h-14 rounded-full shadow-lg transition-transform duration-300 transform sm:h-16 sm:w-16 hover:rotate-12">
+                  <Image
+                    src="/images/search.png"
+                    alt="SearchBag Logo"
+                    width={40}
+                    height={40}
+                    className="object-cover rounded-full"
+                    style={{ background: 'transparent' }}
+                  />
                 </div>
                 <h1 className="text-3xl font-bold tracking-tight text-white drop-shadow-md sm:text-4xl md:text-5xl">
                   SEARCH BAG
@@ -98,9 +92,6 @@ const Banner = () => {
                 className="relative px-6 py-2 text-base font-medium text-blue-800 bg-gradient-to-r from-blue-300 to-blue-100 rounded-full shadow-xl transition-all duration-300 transform hover:from-blue-200 hover:to-white sm:px-8 sm:py-3 sm:text-lg hover:shadow-2xl group font-body hover:-translate-y-1"
               >
                 <span className="relative z-10 mr-2">Explore Products</span>
-                <span className="absolute right-6 top-1/2 text-xl opacity-0 transition-all duration-300 transform -translate-y-1/2 group-hover:opacity-100 group-hover:right-8">
-                  →
-                </span>
               </button>
               <div className="flex gap-2 items-center mt-2 sm:gap-3">
                 <svg

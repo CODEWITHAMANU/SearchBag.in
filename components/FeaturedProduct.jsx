@@ -31,21 +31,21 @@ const FeaturedProduct = () => {
   const router = useRouter();
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-blue-50">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col items-center text-center mb-16">
+    <section className="px-4 py-24 bg-gradient-to-b from-white to-blue-50 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <div className="flex flex-col items-center mb-16 text-center">
           <span className="text-sm font-medium text-blue-600 bg-blue-100 px-4 py-1.5 rounded-full mb-4 shadow-sm">PREMIUM QUALITY</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-stone-900 mb-4 font-heading tracking-tight">
+          <h2 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl text-stone-900 font-heading">
             FEATURED COLLECTIONS
           </h2>
           <div className="w-32 h-1.5 bg-gradient-to-r from-blue-500 to-blue-400 rounded-full mb-6"></div>
-          <p className="text-stone-600 max-w-2xl text-lg leading-relaxed font-body">
+          <p className="max-w-2xl text-lg leading-relaxed text-stone-600 font-body">
             Discover our most popular and trending bag collections, meticulously
             crafted for style, durability, and everyday functionality.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-10">
           {products.map(({ id, image, title, description }, index) => {
             // Different accent colors for each card - all in blue shades
             const accentColors = [
@@ -57,13 +57,13 @@ const FeaturedProduct = () => {
             return (
               <div
                 key={id}
-                className="relative group overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 border border-stone-100 transform hover:-translate-y-2"
+                className="overflow-hidden relative rounded-2xl border shadow-xl transition-all duration-500 transform group hover:shadow-2xl border-stone-100 hover:-translate-y-2"
               >
                 {/* Decorative corner accent */}
-                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-white/20 to-transparent z-10"></div>
-                <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/30 backdrop-blur-md z-10"></div>
+                <div className="absolute top-0 right-0 z-10 w-24 h-24 bg-gradient-to-bl to-transparent from-white/20"></div>
+                <div className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full backdrop-blur-md bg-white/30"></div>
                 
-                <div className="relative h-96 overflow-hidden">
+                <div className="overflow-hidden relative h-96">
                   <Image
                     src={image}
                     alt={title}
@@ -71,15 +71,15 @@ const FeaturedProduct = () => {
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                     quality={90}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-80 group-hover:opacity-70 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t to-transparent opacity-80 transition-opacity duration-300 from-black/80 via-black/40 group-hover:opacity-70"></div>
                 </div>
                 
-                <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                  <h3 className="text-2xl font-bold mb-3 font-heading tracking-wide group-hover:text-blue-300 transition-colors duration-300">{displayTitle}</h3>
-                  <p className="text-white/90 mb-6 font-body">{description}</p>
+                <div className="absolute right-0 bottom-0 left-0 p-8 text-white">
+                  <h3 className="mb-3 text-2xl font-bold tracking-wide transition-colors duration-300 font-heading group-hover:text-blue-300">{displayTitle}</h3>
+                  <p className="mb-6 text-white/90 font-body">{description}</p>
                   <button 
-                    onClick={() => router.push('/all-products?category=' + title)}
-                    className={`px-6 py-3 bg-gradient-to-r ${accentColors[index]} text-white rounded-full text-sm font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform group-hover:translate-y-0 translate-y-4 opacity-0 group-hover:opacity-100`}
+                    onClick={() => router.push('/all-products')}
+                    className={`px-6 py-3 text-sm font-medium text-white bg-gradient-to-r rounded-full shadow-lg opacity-0 transition-all duration-300 transform translate-y-4 ${accentColors[index]} hover:shadow-xl group-hover:translate-y-0 group-hover:opacity-100`}
                   >
                     Explore Collection
                   </button>
