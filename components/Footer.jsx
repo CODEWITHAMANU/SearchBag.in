@@ -10,7 +10,8 @@ import {
   Mail,
   Clock,
   MessageCircle,
-  ExternalLink
+  ExternalLink,
+  Linkedin
 } from "lucide-react";
 
 const Footer = () => {
@@ -54,6 +55,14 @@ const Footer = () => {
               >
                 <Instagram size={16} />
               </Link>
+              <Link
+                href="https://www.linkedin.com/company/search-bag/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 text-white bg-blue-600 rounded-full shadow-lg transition-all duration-300 transform hover:bg-blue-700 hover:shadow-blue-300/20 hover:scale-110"
+              >
+                <Linkedin size={16} />
+              </Link>
             </div>
           </div>
 
@@ -85,15 +94,15 @@ const Footer = () => {
               Categories
             </h3>
             <ul className="grid grid-cols-2 gap-3 sm:grid-cols-1 sm:gap-4">
-              {["Business", "Student", "Casual", "Laptop", "Complementary"].map(
+              {["Backpack", "Laptop Bag", "Sling Bag", "Duffel Bag", "Gym Bag", "Accessories", "Complementary Items"].map(
                 (item, index) => (
                   <li key={index} className="group">
                     <Link
-                      href={`/all-products`}
+                      href={`/all-products?category=${item.toLowerCase()}`}
                       className="flex items-center text-sm transition-all duration-200 text-blue-600/80 hover:text-blue-700"
                     >
                       <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                      {item === "Complementary" ? "Complementary Items" : `${item} Bags`}
+                      {item}
                     </Link>
                   </li>
                 )
@@ -110,16 +119,16 @@ const Footer = () => {
               <li>
                 <div className="flex items-start text-sm text-blue-600/80">
                   <MapPin size={14} className="flex-shrink-0 mt-1 mr-2 text-blue-500" />
-                  <span>Byculla (West), Mumbai, Maharashtra, India</span>
+                  <span>Shop No. 28, Lohe Ki Chawl, Mumbai Bag Market, Maulana Azad Road, Madanpura, Mumbai - 400 008.</span>
                 </div>
               </li>
               <li>
                 <a
-                  href="tel:+918828081163"
+                  href="tel:+919326123535"
                   className="flex items-center text-sm transition-all duration-200 text-blue-600/80 hover:text-blue-700"
                 >
                   <Phone size={14} className="flex-shrink-0 mr-2 text-blue-500" />
-                  +91 88280 81163
+                  +91 93261 23535
                 </a>
               </li>
               <li>
@@ -144,7 +153,7 @@ const Footer = () => {
         {/* WhatsApp Chat Button - Fixed Position */}
         <div className="hidden fixed right-6 bottom-6 z-40 md:block">
           <a
-            href="https://wa.me/918828081163"
+            href="https://wa.me/919326123535"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center p-3.5 text-white bg-green-500 rounded-full shadow-lg transition-all duration-300 hover:bg-green-600 hover:scale-110"

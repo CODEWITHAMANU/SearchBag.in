@@ -7,20 +7,23 @@ const products = [
   {
     id: 1,
     image: assets.header_macbook_image,
-    title: "LUXURY TRAVEL",
-    description: "Premium leather travel bags for the sophisticated explorer.",
+    title: "laptop bag",
+    displayTitle: "LAPTOP BAGS",
+    description: "Premium laptop bags for professionals and students.",
   },
   {
     id: 2,
     image: assets.boy_with_laptop_image,
-    title: "BUSINESS ELITE",
-    description: "Professional briefcases and laptop bags for executives.",
+    title: "backpack",
+    displayTitle: "BACKPACKS",
+    description: "Stylish and functional backpacks for everyday use.",
   },
   {
     id: 3,
     image: assets.header_headphone_image,
-    title: "URBAN STYLE",
-    description: "Contemporary designs for the modern city dweller.",
+    title: "sling bag",
+    displayTitle: "SLING BAGS",
+    description: "Compact and trendy sling bags for the modern lifestyle.",
   },
 ];
 
@@ -72,10 +75,10 @@ const FeaturedProduct = () => {
                 </div>
                 
                 <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                  <h3 className="text-2xl font-bold mb-3 font-heading tracking-wide group-hover:text-blue-300 transition-colors duration-300">{title}</h3>
+                  <h3 className="text-2xl font-bold mb-3 font-heading tracking-wide group-hover:text-blue-300 transition-colors duration-300">{displayTitle}</h3>
                   <p className="text-white/90 mb-6 font-body">{description}</p>
                   <button 
-                    onClick={() => router.push('/all-products?category=' + title.toLowerCase().replace(' ', '-'))}
+                    onClick={() => router.push('/all-products?category=' + title)}
                     className={`px-6 py-3 bg-gradient-to-r ${accentColors[index]} text-white rounded-full text-sm font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform group-hover:translate-y-0 translate-y-4 opacity-0 group-hover:opacity-100`}
                   >
                     Explore Collection

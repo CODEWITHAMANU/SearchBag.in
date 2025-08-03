@@ -20,7 +20,7 @@ const AddProduct = () => {
   const [category, setCategory] = useState("Casual Bags");
   const [price, setPrice] = useState("");
   const [offerPrice, setOfferPrice] = useState("");
-  const [whatsappNumber, setWhatsappNumber] = useState("+918828081163");
+  const [whatsappNumber, setWhatsappNumber] = useState("+919326123535");
   const [colors, setColors] = useState([]);
   const [colorInput, setColorInput] = useState("");
   const [isEditing, setIsEditing] = useState(false);
@@ -38,7 +38,8 @@ const AddProduct = () => {
   const fetchProductData = async (id) => {
     try {
       const token = await getToken();
-      const apiUrl = `${window.location.origin}/api/product/${id}`;
+      const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || window.location.origin;
+      const apiUrl = `${baseUrl}/api/product/${id}`;
       const { data } = await axios.get(apiUrl, {
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -50,7 +51,7 @@ const AddProduct = () => {
         setCategory(product.category || "Casual Bags");
         setPrice(product.price || "");
         setOfferPrice(product.offerPrice || "");
-        setWhatsappNumber(product.whatsappNumber || "+918828081163");
+        setWhatsappNumber(product.whatsappNumber || "+919326123535");
         setColors(product.colors || []);
         setPreviewImages(product.image || []);
       } else {
@@ -101,11 +102,13 @@ const AddProduct = () => {
 
       if (isEditing) {
         formData.append("productId", productId);
-        response = await axios.put("/api/product/update", formData, {
+        const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || window.location.origin;
+        response = await axios.put(`${baseUrl}/api/product/update`, formData, {
           headers: { Authorization: `Bearer ${token}` },
         });
       } else {
-        response = await axios.post("/api/product/add", formData, {
+        const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || window.location.origin;
+        response = await axios.post(`${baseUrl}/api/product/add`, formData, {
           headers: { Authorization: `Bearer ${token}` },
         });
       }
@@ -252,13 +255,11 @@ const AddProduct = () => {
                 required
                 className="w-full px-4 py-2 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-body"
               >
-                <option value="Casual Bags">Casual Bags</option>
-                <option value="Formal Bags">Formal Bags</option>
-                <option value="Travel Bags">Travel Bags</option>
-                <option value="Laptop Bags">Laptop Bags</option>
-                <option value="Backpacks">Backpacks</option>
-                <option value="Handbags">Handbags</option>
-                <option value="Wallets">Wallets</option>
+                <option value="Backpack">Backpack</option>
+                <option value="Laptop Bag">Laptop Bag</option>
+                <option value="Sling Bag">Sling Bag</option>
+                <option value="Duffel Bag">Duffel Bag</option>
+                <option value="Gym Bag">Gym Bag</option>
                 <option value="Accessories">Accessories</option>
                 <option value="Complementary Items">Complementary Items</option>
               </select>

@@ -16,13 +16,15 @@ const HomeProducts = () => {
     const fetchProducts = async () => {
       try {
         setIsLoading(true);
-        // Use absolute URL with origin to ensure it works with custom domains
-        const apiUrl = `${window.location.origin}/api/product/list`;
+        // Use environment variable for API base URL if available, otherwise use window.location.origin
+        const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || window.location.origin;
+        const apiUrl = `${baseUrl}/api/product/list`;
         const { data } = await axios.get(apiUrl);
         if (data.success) {
+          const validCategories = ["backpack", "laptop bag", "sling bag", "duffel bag", "gym bag", "accessories"];
           const bagProducts = data.products.filter(
             (product) =>
-              product.category?.toLowerCase().includes("bag") ||
+              validCategories.some(cat => product.category?.toLowerCase().includes(cat)) ||
               product.name?.toLowerCase().includes("bag")
           );
           setProducts(bagProducts);
@@ -76,19 +78,19 @@ const HomeProducts = () => {
             ))}
           </div>
         ) : products.length > 0 ? (
-          <>
+          <div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 w-full">
               {products.map((product, index) => (
                 <ProductCard key={index} product={product} />
               ))}
             </div>
             <button
-              onClick={() => router.push("/all-products")}
+              onClick={() => router.push("/all-products?category=all")}
               className="mt-12 sm:mt-16 px-6 sm:px-10 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-full hover:from-blue-500 hover:to-blue-600 transition-all duration-300 font-medium uppercase tracking-wide text-sm sm:text-base shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 focus:ring-2 focus:ring-blue-300 focus:ring-offset-2 focus:outline-none"
             >
               Explore All Collections
             </button>
-          </>
+          </div>
         ) : (
           <div className="text-center py-16">
             <div className="bg-gradient-to-br from-white to-blue-50 p-6 sm:p-10 rounded-2xl max-w-md mx-auto border border-blue-100 shadow-soft">

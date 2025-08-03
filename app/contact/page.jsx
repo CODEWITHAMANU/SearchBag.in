@@ -216,10 +216,10 @@ const ContactPage = () => {
                           Address
                         </h3>
                         <p className="text-sm sm:text-base text-gray-600 font-body bg-blue-50/50 p-2 rounded-lg border border-blue-100 mt-1 shadow-sm">
-                          Shop No. 27, Lohe Ki Chawl, Mumbai Bag Market
+                          Shop No. 28, Lohe Ki Chawl, Mumbai Bag Market
                         </p>
                         <p className="text-sm sm:text-base text-gray-600 font-body bg-blue-50/50 p-2 rounded-lg border border-blue-100 mt-1 shadow-sm">
-                          Maulana Azad Road, Madanpura, Mumbai-8
+                          Maulana Azad Road, Madanpura, Mumbai - 400 008
                         </p>
                       </div>
                     </div>
@@ -245,8 +245,8 @@ const ContactPage = () => {
                         <h3 className="text-base sm:text-lg font-heading font-semibold text-blue-900 mb-0.5 sm:mb-1">
                           Phone
                         </h3>
-                        <a href="tel:+918828081163" className="text-sm sm:text-base text-gray-600 hover:text-blue-600 transition-colors duration-200 font-body bg-blue-50/50 p-2 rounded-lg border border-blue-100 mt-1 shadow-sm block">
-                          +91 88280 81163
+                        <a href="tel:+919326123535" className="text-sm sm:text-base text-gray-600 hover:text-blue-600 transition-colors duration-200 font-body bg-blue-50/50 p-2 rounded-lg border border-blue-100 mt-1 shadow-sm block">
+                          +91 93261 23535
                         </a>
                       </div>
                     </div>

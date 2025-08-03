@@ -68,9 +68,8 @@ const Navbar = () => {
     const fetchSearchResults = async () => {
       if (searchQuery.trim()) {
         try {
-          const apiUrl = `${
-            window.location.origin
-          }/api/products/search?q=${encodeURIComponent(searchQuery)}`;
+          const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || window.location.origin;
+          const apiUrl = `${baseUrl}/api/products/search?q=${encodeURIComponent(searchQuery)}`;
           const response = await axios.get(apiUrl);
           setSearchResults(response.data);
         } catch (error) {
@@ -91,10 +90,10 @@ const Navbar = () => {
       {/* Top Contact Bar */}
       <div className="hidden justify-end items-center px-8 py-2 space-x-6 text-xs bg-blue-50 md:flex">
         <a
-          href="tel:+918828081163"
+          href="tel:+919326123535"
           className="flex items-center transition-colors duration-200 hover:text-blue-600"
         >
-          <Phone className="mr-1.5 w-3 h-3" /> +91 88280 81163
+          <Phone className="mr-1.5 w-3 h-3" /> +91 93261 23535
         </a>
         <a
           href="mailto:searchbags789@gmail.com"
@@ -111,7 +110,7 @@ const Navbar = () => {
           className="flex gap-3 items-center cursor-pointer md:gap-4 group"
           onClick={() => router.push("/")}
         >
-          <div className="relative w-10 h-10 md:w-12 md:h-12 transform group-hover:scale-110 transition-transform duration-300">
+          <div className="relative w-12 h-12 transition-transform duration-300 transform md:w-16 md:h-16 group-hover:scale-110">
             <Image
               src="/images/search.png"
               alt="Search Bags Logo"
@@ -149,7 +148,7 @@ const Navbar = () => {
         {/* Right Section */}
         <div className="flex gap-4 items-center md:gap-6">
           {/* Search - Desktop Only */}
-          <div className="relative hidden md:block" ref={searchRef}>
+          <div className="hidden relative md:block" ref={searchRef}>
             <Search
               className="w-5 h-5 transition-colors duration-200 cursor-pointer hover:text-blue-500"
               onClick={() => setIsSearchOpen(!isSearchOpen)}
@@ -268,7 +267,7 @@ const Navbar = () => {
             ))}
 
             <a
-              href="https://wa.me/918828081163"
+              href="https://wa.me/919326123535"
               target="_blank"
               rel="noopener noreferrer"
               className="flex gap-2 items-center py-2 text-sm font-medium border-b border-blue-100"
@@ -280,7 +279,7 @@ const Navbar = () => {
 
             <div className="flex gap-2 items-center py-2 text-sm font-medium border-b border-blue-100">
               <Phone className="w-4 h-4 text-blue-500" />
-              <a href="tel:+918828081163">+91 88280 81163</a>
+              <a href="tel:+919326123535">+91 93261 23535</a>
             </div>
             <div className="flex gap-2 items-center py-2 text-sm font-medium">
               <Mail className="w-4 h-4 text-blue-500" />

@@ -24,22 +24,50 @@ const AppContextProvider = ({ children }) => {
         const categoryParam = urlParams.get("category");
 
         if (categoryParam) {
-          setCategory(categoryParam);
+          setCategory(categoryParam.toLowerCase());
         }
 
-        // Use absolute URL with origin to ensure it works with custom domains
-        const apiUrl = `${window.location.origin}/api/product/list`;
+        // Use environment variable for API base URL if available, otherwise use window.location.origin
+        const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || window.location.origin;
+        const apiUrl = `${baseUrl}/api/product/list`;
         const response = await fetch(apiUrl);
         const data = await response.json();
+        
+        console.log("API Response:", data); // Add logging to see API response
+        
         if (data.success) {
           let filteredProducts = data.products;
+          console.log("All products:", filteredProducts.length); // Log total products count
+          
+          // Log all products and their categories for debugging
+          console.log("All products with categories:", data.products.map(p => ({
+            name: p.name,
+            category: p.category,
+            id: p._id
+          })));
 
           // Filter by category if specified
-          if (categoryParam) {
+          if (category) {
+            console.log("Filtering by category:", category);
+            console.log("Product categories:", data.products.map(p => p.category.toLowerCase()));
+            
             filteredProducts = data.products.filter(
-              (product) =>
-                product.category.toLowerCase() === categoryParam.toLowerCase()
+              (product) => {
+                // Normalize category names for comparison
+                const productCategory = product.category.toLowerCase().trim();
+                const searchCategory = category.toLowerCase().trim();
+                
+                // Check for partial matches or specific mappings
+                const match = 
+                  productCategory === searchCategory ||
+                  productCategory.includes(searchCategory) ||
+                  searchCategory.includes(productCategory);
+                  
+                console.log(`Product ${product.name} category: ${productCategory}, match with ${searchCategory}: ${match}`);
+                return match;
+              }
             );
+            console.log("Filtered products by category:", category, filteredProducts.length); // Log filtered count
           }
 
           setProducts(filteredProducts);
@@ -52,7 +80,7 @@ const AppContextProvider = ({ children }) => {
     };
 
     fetchProducts();
-  }, []);
+  }, [category]);
 
   const formatWhatsAppMessage = (product) => {
     return `Hi, I'm interested in the ${product.name}. Could you provide more information about it?`;
@@ -60,7 +88,7 @@ const AppContextProvider = ({ children }) => {
 
   const openWhatsAppChat = (product) => {
     const message = formatWhatsAppMessage(product);
-    const phoneNumber = "+918828081163"; // Use product's WhatsApp number or default
+    const phoneNumber = "+919326123535"; // Use product's WhatsApp number or default
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
       message
     )}`;

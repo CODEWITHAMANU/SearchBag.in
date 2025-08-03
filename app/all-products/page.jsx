@@ -3,7 +3,9 @@
 import { useState, useEffect } from "react";
 import ProductCard from "@/components/ProductCard";
 import { useAppContext } from "@/context/AppContext";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
+import Image from "next/image";
+import { assets } from "@/assets/assets";
 
 const AllProducts = () => {
   const { products, category, setCategory, loading } = useAppContext();
@@ -12,37 +14,64 @@ const AllProducts = () => {
   const [activeFilter, setActiveFilter] = useState("all");
   const [showComplimentary, setShowComplimentary] = useState(false);
   const searchParams = useSearchParams();
+  const router = useRouter();
 
+  // Effect to set active filter from URL or context
   useEffect(() => {
     const categoryParam = searchParams.get("category");
     if (categoryParam) {
       setActiveFilter(categoryParam);
       setCategory(categoryParam);
+    } else if (category) {
+      setActiveFilter(category);
     }
+    
+    console.log("URL category param:", categoryParam);
+    console.log("Active filter set to:", activeFilter);
+  }, [searchParams, category, setCategory]);
 
+  // Effect to filter products when products or active filter changes
+  useEffect(() => {
+    console.log("Products from context:", products?.length || 0);
+    console.log("Active filter for filtering:", activeFilter);
+    
     if (products && products.length > 0) {
+      console.log("Available categories in products:", [...new Set(products.map(p => p.category.toLowerCase()))]);
+      
       let filtered;
       if (activeFilter === "all") {
         filtered = products;
       } else {
         filtered = products.filter(
-          (product) =>
-            product.category.toLowerCase() === activeFilter.toLowerCase()
+          (product) => {
+            // Normalize category names for comparison
+            const productCategory = product.category.toLowerCase().trim();
+            const filterCategory = activeFilter.toLowerCase().trim();
+            
+            // Check for partial matches or specific mappings
+            const match = 
+              productCategory === filterCategory ||
+              productCategory.includes(filterCategory) ||
+              filterCategory.includes(productCategory);
+              
+            console.log(`Product ${product.name} category: ${productCategory}, match with ${filterCategory}: ${match}`);
+            return match;
+          }
         );
       }
+      console.log("Filtered products count:", filtered.length);
       setFilteredProducts(filtered);
       
       // Set complimentary items based on current category
       // For example, if viewing bags, show accessories as complimentary
       const complementaryMap = {
-        "casual bags": ["accessories", "complementary items"],
-        "travel bags": ["accessories", "backpacks", "complementary items"],
-        "business bags": ["laptop bags", "accessories", "complementary items"],
-        "laptop bags": ["business bags", "accessories", "complementary items"],
-        "backpacks": ["travel bags", "accessories", "complementary items"],
-        "handbags": ["accessories", "complementary items"],
-        "accessories": ["casual bags", "handbags", "complementary items"],
-        "complementary items": ["casual bags", "handbags", "accessories"]
+        "backpack": ["accessories", "complementary items"],
+        "laptop bag": ["accessories", "complementary items"],
+        "sling bag": ["accessories", "complementary items"],
+        "duffel bag": ["accessories", "complementary items"],
+        "gym bag": ["accessories", "complementary items"],
+        "accessories": ["backpack", "laptop bag", "complementary items"],
+        "complementary items": ["backpack", "laptop bag", "accessories"]
       };
       
       const complementaryCategories = complementaryMap[activeFilter] || [];
@@ -62,16 +91,15 @@ const AllProducts = () => {
       setComplimentaryItems([]);
       setShowComplimentary(false);
     }
-  }, [products, activeFilter, searchParams, setCategory]);
+  }, [products, activeFilter]);
 
   const categories = [
     { id: "all", name: "All Bags" },
-    { id: "casual bags", name: "Casual Bags" },
-    { id: "travel bags", name: "Travel Bags" },
-    { id: "business bags", name: "Business Bags" },
-    { id: "laptop bags", name: "Laptop Bags" },
-    { id: "backpacks", name: "Backpacks" },
-    { id: "handbags", name: "Handbags" },
+    { id: "backpack", name: "Backpack" },
+    { id: "laptop bag", name: "Laptop Bag" },
+    { id: "sling bag", name: "Sling Bag" },
+    { id: "duffel bag", name: "Duffel Bag" },
+    { id: "gym bag", name: "Gym Bag" },
     { id: "accessories", name: "Accessories" },
     { id: "complementary items", name: "Complementary Items" },
   ];
@@ -111,7 +139,15 @@ const AllProducts = () => {
               {categories.map((cat) => (
                 <button
                   key={cat.id}
-                  onClick={() => setActiveFilter(cat.id)}
+                  onClick={() => {
+                    setActiveFilter(cat.id);
+                    // Update URL with category parameter
+                    if (cat.id === "all") {
+                      router.push("/all-products");
+                    } else {
+                      router.push(`/all-products?category=${cat.id}`);
+                    }
+                  }}
                   className={`px-4 py-2 text-sm font-medium transition-all duration-200 whitespace-nowrap rounded-lg ${
                     activeFilter === cat.id
                       ? "bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-md"
@@ -137,7 +173,7 @@ const AllProducts = () => {
             </div>
           </div>
         ) : (
-          <>
+          <div>
             {/* Products Grid */}
             {filteredProducts && filteredProducts.length > 0 ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 sm:gap-6">
@@ -170,7 +206,10 @@ const AllProducts = () => {
                   </p>
                   <div className="mt-6 relative z-10">
                     <button
-                      onClick={() => setActiveFilter("all")}
+                      onClick={() => {
+                        setActiveFilter("all");
+                        router.push("/all-products");
+                      }}
                       className="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-lg text-sm font-medium hover:from-blue-700 hover:to-blue-600 transition-all duration-300 shadow-md hover:shadow-lg"
                     >
                       View All Products
@@ -199,7 +238,7 @@ const AllProducts = () => {
                 </div>
               </div>
             )}
-          </>
+          </div>
         )}
       </div>
     </div>

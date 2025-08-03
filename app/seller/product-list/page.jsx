@@ -20,7 +20,8 @@ const ProductList = () => {
   const fetchSellerProduct = async () => {
     try {
       const token = await getToken();
-      const apiUrl = `${window.location.origin}/api/product/seller-list`;
+      const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || window.location.origin;
+      const apiUrl = `${baseUrl}/api/product/seller-list`;
       const { data } = await axios.get(apiUrl, {
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -44,7 +45,8 @@ const ProductList = () => {
     try {
       setDeletingId(id);
       const token = await getToken();
-      const apiUrl = `${window.location.origin}/api/product/delete/${id}`;
+      const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || window.location.origin;
+      const apiUrl = `${baseUrl}/api/product/delete/${id}`;
       const { data } = await axios.delete(apiUrl, {
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -308,14 +310,14 @@ const ProductList = () => {
                           className="text-center py-10 text-stone-500"
                         >
                           {searchTerm ? (
-                            <>
+                            <div>
                               <p className="text-lg mb-1">No products found</p>
                               <p className="text-sm">
                                 Try adjusting your search or filters
                               </p>
-                            </>
+                            </div>
                           ) : (
-                            <>
+                            <div>
                               <p className="text-lg mb-1">
                                 You haven't added any products yet
                               </p>
@@ -338,7 +340,7 @@ const ProductList = () => {
                                 </svg>
                                 Add your first product
                               </Link>
-                            </>
+                            </div>
                           )}
                         </td>
                       </tr>

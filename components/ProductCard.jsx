@@ -19,7 +19,13 @@ const ProductCard = ({ product }) => {
             height={400}
             priority
           />
-          <div className="absolute top-3 right-3 bg-blue-600 text-white text-xs font-medium px-3 py-1 rounded-full tracking-wide opacity-90 font-body">
+          <div 
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.href = `/all-products?category=${encodeURIComponent(product.category.toLowerCase())}`;
+            }}
+            className="absolute top-3 right-3 bg-blue-600 text-white text-xs font-medium px-3 py-1 rounded-full tracking-wide opacity-90 font-body cursor-pointer hover:bg-blue-700 transition-colors duration-200"
+          >
             {product.category}
           </div>
         </div>

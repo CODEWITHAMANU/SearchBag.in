@@ -199,10 +199,28 @@ const HeaderSlider = () => {
             
             <div className="flex justify-center pt-4 md:justify-start">
               <button
-                onClick={() => router.push("/all-products")}
+                onClick={() => {
+                  // Extract category from title and navigate to all-products with category parameter
+                  const category = slide.title.toLowerCase().includes('travel') ? 'duffel bag' : 
+                                slide.title.toLowerCase().includes('student') ? 'backpack' : 
+                                slide.title.toLowerCase().includes('business') ? 'laptop bag' : 'all';
+                  router.push(`/all-products?category=${category}`);
+                }}
                 className="px-6 py-2 w-full text-sm font-medium bg-gradient-to-r from-blue-500 to-blue-400 rounded-full shadow-xl transition-all duration-300 transform hover:from-blue-400 hover:to-blue-300 text-stone-100 md:px-8 md:py-3 md:text-base hover:shadow-2xl hover:-translate-y-1 font-body sm:w-auto"
               >
                 {slide.buttonText1}
+              </button>
+              <button
+                onClick={() => {
+                  // Extract category from title and navigate to all-products with category parameter
+                  const category = slide.title.toLowerCase().includes('travel') ? 'duffel bag' : 
+                                slide.title.toLowerCase().includes('student') ? 'backpack' : 
+                                slide.title.toLowerCase().includes('business') ? 'laptop bag' : 'all';
+                  router.push(`/all-products?category=${category}`);
+                }}
+                className="px-6 py-2 ml-3 w-full text-sm font-medium bg-transparent rounded-full border transition-all duration-300 transform border-white/30 hover:bg-white/10 text-stone-100 md:px-8 md:py-3 md:text-base hover:border-white/60 font-body sm:w-auto"
+              >
+                {slide.buttonText2}
               </button>
             </div>
           </div>

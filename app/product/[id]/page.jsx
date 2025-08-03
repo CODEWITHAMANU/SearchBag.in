@@ -31,7 +31,7 @@ const Product = () => {
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 sm:gap-8 lg:gap-16">
           {/* Product Images */}
           <div className="px-2 sm:px-4 lg:px-8">
-            <div className="overflow-hidden p-3 mb-4 bg-white rounded-xl border transition-all duration-300 border-blue-200 sm:p-6 sm:mb-6 shadow-soft hover:shadow-lg">
+            <div className="overflow-hidden p-3 mb-4 bg-white rounded-xl border border-blue-200 transition-all duration-300 sm:p-6 sm:mb-6 shadow-soft hover:shadow-lg">
               <Image
                 src={mainImage || productData.image[0]}
                 alt={productData.name}
@@ -67,7 +67,7 @@ const Product = () => {
 
           {/* Product Details */}
           <div className="flex flex-col px-2 sm:px-4">
-            <h1 className="mb-3 text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl font-heading text-blue-900 sm:mb-4">
+            <h1 className="mb-3 text-2xl font-bold tracking-tight text-blue-900 sm:text-3xl md:text-4xl font-heading sm:mb-4">
               {productData.name}
             </h1>
             
@@ -88,8 +88,8 @@ const Product = () => {
               </span>
             </div>
 
-            <div className="p-4 mb-4 bg-white rounded-xl border sm:mb-6 sm:p-6 border-blue-200 shadow-soft">
-              <h3 className="mb-2 text-lg font-bold tracking-tight sm:text-xl text-blue-800 sm:mb-3">
+            <div className="p-4 mb-4 bg-white rounded-xl border border-blue-200 sm:mb-6 sm:p-6 shadow-soft">
+              <h3 className="mb-2 text-lg font-bold tracking-tight text-blue-800 sm:text-xl sm:mb-3">
                 Description
               </h3>
               <p className="text-sm leading-relaxed sm:text-base text-stone-700 font-body text-balance">
@@ -101,13 +101,13 @@ const Product = () => {
               <table className="w-full border-collapse table-auto">
                 <tbody className="divide-y divide-blue-100">
                   <tr className="py-2">
-                    <td className="py-2 text-xs font-medium tracking-wide sm:py-3 text-blue-600 sm:text-sm">
+                    <td className="py-2 text-xs font-medium tracking-wide text-blue-600 sm:py-3 sm:text-sm">
                       BRAND
                     </td>
-                    <td className="py-2 text-sm sm:py-3 text-blue-800 font-body sm:text-base">SearchBag</td>
+                    <td className="py-2 text-sm text-blue-800 sm:py-3 font-body sm:text-base">SearchBag</td>
                   </tr>
                   <tr className="py-2">
-                    <td className="py-2 text-xs font-medium tracking-wide sm:py-3 text-blue-600 sm:text-sm">
+                    <td className="py-2 text-xs font-medium tracking-wide text-blue-600 sm:py-3 sm:text-sm">
                       CATEGORY
                     </td>
                     <td className="py-2 sm:py-3">
@@ -123,7 +123,7 @@ const Product = () => {
             <button
               onClick={() => {
                 const message = `Hi, I'm interested in the ${productData.name}. Could you provide more information about it?`;
-                const phoneNumber = productData.whatsappNumber || "+918828081163";
+                const phoneNumber = productData.whatsappNumber || "+919326123535";
                 const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
                   message
                 )}`;
@@ -147,7 +147,7 @@ const Product = () => {
         {/* Related Products */}
         <div className="flex flex-col items-center mt-8 sm:mt-16">
           <div className="flex flex-col items-center mb-6 sm:mb-10">
-            <h2 className="text-2xl font-bold tracking-tight text-center sm:text-3xl font-heading text-blue-900">
+            <h2 className="text-2xl font-bold tracking-tight text-center text-blue-900 sm:text-3xl font-heading">
               You May Also Like
             </h2>
             <div className="w-24 sm:w-32 h-0.5 bg-gradient-to-r from-blue-600 to-blue-400 mt-2"></div>
