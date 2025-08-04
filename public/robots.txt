@@ -1,9 +1,11 @@
+# *
 User-agent: *
 Allow: /
+Disallow: /seller
+Disallow: /api
 
-# Prevent old website content from appearing in search results
-Disallow: /old-site/
-Disallow: /previous-design/
+# Host
+Host: https://www.searchbag.in
 
-# Allow search engines to crawl the site
+# Sitemaps
 Sitemap: https://www.searchbag.in/sitemap.xml
