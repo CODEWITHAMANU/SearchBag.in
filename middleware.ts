@@ -2,7 +2,7 @@ import { authMiddleware } from "@clerk/nextjs";
 
 const isBot = (req: Request) => {
   const ua = req.headers.get("user-agent") || "";
-  return /Googlebot|Bingbot|Slurp|DuckDuckBot|Baiduspider|YandexBot|Sogou|Exabot|facebot|facebookexternalhit|Twitterbot/i.test(ua);
+  return /Googlebot|Bingbot|Slurp/i.test(ua);
 };
 
 export default authMiddleware({
@@ -12,32 +12,29 @@ export default authMiddleware({
     '/contact',
     '/all-products',
     '/product/(.*)',
-    '/api/(.*)',
+    '/api/(.*)'
   ],
   ignoredRoutes: (req) => {
+    // Bypass middleware completely for:
+    // 1. Googlebot on public routes
+    // 2. Static files
     const path = new URL(req.url).pathname;
-    const publicPaths = [
+    const isPublic = [
       '/',
       '/about',
       '/contact',
       '/all-products',
       /^\/product\/.*/,
       /^\/api\/.*/,
-    ];
-
-    const isPublic = publicPaths.some(publicPath =>
-      typeof publicPath === 'string'
-        ? path === publicPath
-        : publicPath.test(path)
+      /\.(ico|svg|png|jpg|jpeg|css|js)$/i
+    ].some(route =>
+      typeof route === 'string' ? path === route : route.test(path)
     );
 
-    return isBot(req) && isPublic;
+    return isBot(req) || isPublic;
   },
 });
 
 export const config = {
-  matcher: [
-    '/((?!_next|.*\\..*).*)',
-    '/(api|trpc)(.*)',
-  ],
+  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
 };
