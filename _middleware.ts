@@ -15,8 +15,23 @@ export default authMiddleware({
     '/api/(.*)',
   ],
   ignoredRoutes: (req) => {
-    if (isBot(req)) return true;
-    return false;
+    const path = new URL(req.url).pathname;
+    const publicPaths = [
+      '/',
+      '/about',
+      '/contact',
+      '/all-products',
+      /^\/product\/.*/,
+      /^\/api\/.*/,
+    ];
+
+    const isPublic = publicPaths.some(publicPath =>
+      typeof publicPath === 'string'
+        ? path === publicPath
+        : publicPath.test(path)
+    );
+
+    return isBot(req) && isPublic;
   },
 });
 
