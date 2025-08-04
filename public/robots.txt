@@ -9,3 +9,4 @@ Host: https://www.searchbag.in
 
 # Sitemaps
 Sitemap: https://www.searchbag.in/sitemap.xml
+Sitemap: https://www.searchbag.in/sitemap-0.xml
