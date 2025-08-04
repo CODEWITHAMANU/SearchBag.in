@@ -1,15 +1,23 @@
 import { authMiddleware } from "@clerk/nextjs";
 
+const isBot = (req: Request) => {
+  const ua = req.headers.get("user-agent") || "";
+  return /Googlebot|Bingbot|Slurp|DuckDuckBot|Baiduspider|YandexBot|Sogou|Exabot|facebot|facebookexternalhit|Twitterbot/i.test(ua);
+};
+
 export default authMiddleware({
   publicRoutes: [
-    '/', // Home page
+    '/',
     '/about',
     '/contact',
-    '/collections',
     '/all-products',
-    '/product/(.*)', // for dynamic product pages
-    '/api/(.*)',     // if you have public API routes
+    '/product/(.*)',
+    '/api/(.*)',
   ],
+  ignoredRoutes: (req) => {
+    if (isBot(req)) return true;
+    return false;
+  },
 });
 
 export const config = {
