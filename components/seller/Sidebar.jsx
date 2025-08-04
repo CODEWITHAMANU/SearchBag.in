@@ -3,13 +3,14 @@ import Link from 'next/link';
 import { assets } from '../../assets/assets';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { PlusSquare, List } from 'lucide-react'; // Import Lucide icons
 
 const SideBar = () => {
-    const pathname = usePathname()
+    const pathname = usePathname();
+
     const menuItems = [
-        { name: 'Add Product', path: '/seller', icon: assets.add_icon },
-        { name: 'Product List', path: '/seller/product-list', icon: assets.product_list_icon },
-        
+        { name: 'Add Product', path: '/seller', icon: <PlusSquare className="w-6 h-6 text-blue-700" /> },
+        { name: 'Product List', path: '/seller/product-list', icon: <List className="w-6 h-6 text-blue-700" /> },
     ];
 
     return (
