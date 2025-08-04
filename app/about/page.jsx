@@ -112,7 +112,7 @@ const AboutPage = () => {
             <div className="order-2 mb-8 w-full lg:w-1/2 lg:mb-0 lg:order-1">
               <div className="overflow-hidden relative h-96 bg-blue-100 rounded-2xl shadow-xl sm:h-[400px] lg:h-[500px]">
                 <Image
-                  src="/about.png"
+                  src="/aboutt.png"
                   alt="About Search Bag"
                   fill
                   className="object-contain rounded-2xl"

@@ -1,5 +1,6 @@
+// tailwind.config.mjs
 /** @type {import('tailwindcss').Config} */
-export default {
+const config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -25,13 +26,14 @@ export default {
     },
   },
   plugins: [
-    function ({ addUtilities }) {
-      const newUtilities = {
+    ({ addUtilities }) => {
+      addUtilities({
         ".text-shadow-logo": {
-          textShadow: "1px 1px 2px rgba(0,0,0,0.1)",
+          textShadow: "1px 1px 2px rgba(0, 0, 0, 0.1)",
         },
-      };
-      addUtilities(newUtilities);
+      });
     },
   ],
 };
+
+export default config;

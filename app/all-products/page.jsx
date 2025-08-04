@@ -184,7 +184,7 @@ const AllProducts = () => {
               </div>
             )}
 
-            {showComplimentary && complimentaryItems.length > 0 && (
+            {/* {showComplimentary && complimentaryItems.length > 0 && (
               <div className="mt-16 pt-8 border-t border-blue-100">
                 <div className="text-center mb-8">
                   <h2 className="text-2xl sm:text-3xl font-bold text-blue-900 font-heading tracking-tight mb-3 relative">
@@ -200,7 +200,7 @@ const AllProducts = () => {
                   ))}
                 </div>
               </div>
-            )}
+            )} */}
           </>
         )}
       </div>

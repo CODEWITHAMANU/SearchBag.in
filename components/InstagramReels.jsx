@@ -16,13 +16,13 @@ const SearchBags = () => {
   const bagsData = [
     {
       id: 1,
-      title: "Travel Essentials for Your Next Adventure",
+      title: "Shop Tour",
       videoUrl: "/videos/reel.mp4", // This would be a real video in production
       bgColor: "bg-blue-600",
       likes: 1245,
       views: 5678,
       comments: 89,
-      instagramLink: "https://www.instagram.com/",
+      instagramLink: "https://www.instagram.com/searchbag.in/?igsh=MWdwdjZudzRuODY0OQ%3D%3D#",
       username: "searchbag.in",
     },
     {
@@ -33,18 +33,18 @@ const SearchBags = () => {
       likes: 987,
       views: 4321,
       comments: 56,
-      instagramLink: "https://www.instagram.com/",
+      instagramLink: "https://www.instagram.com/searchbag.in/?igsh=MWdwdjZudzRuODY0OQ%3D%3D#",
       username: "searchbag.in",
     },
     {
       id: 3,
       title: "How to Organize Your Backpack",
-      videoUrl: "/videos/reel.mp4",
+      videoUrl: "/videos/reels.mp4",
       bgColor: "bg-blue-700",
       likes: 2345,
       views: 8765,
       comments: 134,
-      instagramLink: "https://www.instagram.com/",
+      instagramLink: "https://www.instagram.com/searchbag.in/?igsh=MWdwdjZudzRuODY0OQ%3D%3D#",
       username: "searchbag.in",
     },
     {
@@ -55,7 +55,7 @@ const SearchBags = () => {
       likes: 876,
       views: 3456,
       comments: 42,
-      instagramLink: "https://www.instagram.com/",
+      instagramLink: "https://www.instagram.com/searchbag.in/?igsh=MWdwdjZudzRuODY0OQ%3D%3D#",
       username: "searchbag.in",
     },
   ];

@@ -17,7 +17,7 @@ const AddProduct = () => {
   const [previewImages, setPreviewImages] = useState([]);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("Casual Bags");
+  const [category, setCategory] = useState("Backpack");
   const [price, setPrice] = useState("");
   const [offerPrice, setOfferPrice] = useState("");
   const [whatsappNumber, setWhatsappNumber] = useState("+919326123535");
@@ -48,7 +48,7 @@ const AddProduct = () => {
         const product = data.product;
         setName(product.name || "");
         setDescription(product.description || "");
-        setCategory(product.category || "Casual Bags");
+        setCategory(product.category || "Backpack");
         setPrice(product.price || "");
         setOfferPrice(product.offerPrice || "");
         setWhatsappNumber(product.whatsappNumber || "+919326123535");
@@ -135,7 +135,7 @@ const AddProduct = () => {
     setPreviewImages([]);
     setName("");
     setDescription("");
-    setCategory("Casual Bags");
+    setCategory("Backpack");
     setPrice("");
     setOfferPrice("");
     setColors([]);

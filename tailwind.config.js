@@ -44,37 +44,34 @@ module.exports = {
         },
       },
       boxShadow: {
-        soft: "0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)",
-        hover: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+        soft:
+          "0 4px 6px -1px rgba(0, 0, 0, 0.05), " +
+          "0 2px 4px -1px rgba(0, 0, 0, 0.03)",
+        hover:
+          "0 10px 15px -3px rgba(0, 0, 0, 0.1), " +
+          "0 4px 6px -2px rgba(0, 0, 0, 0.05)",
       },
       animation: {
-        'spin-slow': 'spin 8s linear infinite',
+        "spin-slow": "spin 8s linear infinite",
       },
       keyframes: {
         wiggle: {
-          '0%, 100%': { transform: 'rotate(-3deg)' },
-          '50%': { transform: 'rotate(3deg)' },
-        }
+          "0%, 100%": { transform: "rotate(-3deg)" },
+          "50%": { transform: "rotate(3deg)" },
+        },
       },
       transitionTimingFunction: {
-        'bounce-in-out': 'cubic-bezier(0.68, -0.55, 0.27, 1.55)',
+        "bounce-in-out": "cubic-bezier(0.68, -0.55, 0.27, 1.55)",
       },
     },
   },
   plugins: [
-    function({ addUtilities }) {
-      const newUtilities = {
-        '.animation-delay-1000': {
-          'animation-delay': '1000ms',
-        },
-        '.animation-delay-2000': {
-          'animation-delay': '2000ms',
-        },
-        '.animation-delay-3000': {
-          'animation-delay': '3000ms',
-        },
-      }
-      addUtilities(newUtilities)
+    ({ addUtilities }) => {
+      addUtilities({
+        ".animation-delay-1000": { "animation-delay": "1000ms" },
+        ".animation-delay-2000": { "animation-delay": "2000ms" },
+        ".animation-delay-3000": { "animation-delay": "3000ms" },
+      });
     },
   ],
 };
